@@ -1,7 +1,0 @@
-package com.vaibhav.exception;
-
-public class SellerException  extends  Exception {
-    public SellerException(String message) {
-        super(message);
-    }
-}
