@@ -4,7 +4,7 @@ import com.razorpay.Payment;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
-import com.stripe.Stripe;
+
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
@@ -16,7 +16,7 @@ import com.vaibhav.model.User;
 import com.vaibhav.repository.OrderRepository;
 import com.vaibhav.repository.PaymentOrderRepository;
 import com.vaibhav.service.PaymentService;
-import jakarta.annotation.PostConstruct;
+
 import lombok.RequiredArgsConstructor;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,15 +35,20 @@ public class PaymentServiceImpl implements PaymentService {
     private final PaymentOrderRepository paymentOrderRepository;
     private final  OrderRepository orderRepository;
 
-//    @Value("${stripe.api.key}")
-//    private String stripeApiKey;
+
 
     @Value("${razorpay.api.key}")
     private String apiKey;
 
     @Value("${razorpay.api.secret}")
     private String apiSecret;
-    @PostConstruct
+
+    @Value("${stripe.secret.key}")
+    private String secretKey;
+
+    @Value("${stripe.publishable.key}")
+    private String publishableKey;
+
 
     @Override
     public PaymentOrder createOrder(User user, Set<Order> orders) {
@@ -169,3 +174,5 @@ public class PaymentServiceImpl implements PaymentService {
         return session.getUrl();
     }
 }
+
+// postconstruct
