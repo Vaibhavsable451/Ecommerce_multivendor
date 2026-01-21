@@ -18,8 +18,8 @@ import Account from './customer/pages/Account/Account';
 import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
 import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';
-import AdminDashboard from './admin/Pages/Dashboard/AdminDashboard';
-import AdminAuth from './admin/auth/AdminAuth';
+import AdminDashboard from './Pages/Dashboard/AdminDashboard';
+import AdminAuth from './auth/AdminAuth';
 
 
 import store, { useAppDispatch, useAppSelector } from './State/Store';
