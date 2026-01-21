@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
-import SellersTable from '../admin/Pages/Sellers/SellersTable'
-import Coupon from '../admin/Pages/Coupon/Coupon'
-import AddNewCouponForm from '../admin/Pages/Coupon/AddNewCouponForm'
-import GridTable from '../admin/Pages/HomePage/GridTable'
-import ElectronicTable from '../admin/Pages/HomePage/ElectronicTable'
-import ShopByCategoryTable from '../admin/Pages/HomePage/ShopByCategoryTable'
-import Deal from '../admin/Pages/HomePage/Deal'
+import SellersTable from '../Pages/Sellers/SellersTable'
+import Coupon from '../Pages/Coupon/Coupon'
+import AddNewCouponForm from '../Pages/Coupon/AddNewCouponForm'
+import GridTable from '../Pages/HomePage/GridTable'
+import ElectronicTable from '../Pages/HomePage/ElectronicTable'
+import ShopByCategoryTable from '../Pages/HomePage/ShopByCategoryTable'
+import Deal from '../Pages/HomePage/Deal'
 
 const AdminRoutes = () => {
   return (
