@@ -1,7 +1,7 @@
 
+
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { thunk } from 'redux-thunk';
 import sellerSlice from './seller/sellerSlice';
 import sellerProductSlice from './seller/sellerProductSlice'
 import productSlice from './customer/ProductSlice'
@@ -56,7 +56,6 @@ adminReport: adminReportReducer,
 
 const store=configureStore({
   reducer:rootReducer,
-  middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(thunk)
 });
 
 export type AppDispatch=typeof store.dispatch;
