@@ -58,13 +58,13 @@ const SellingChart: React.FC<SellingChartProps> = ({ chartType }) => {
           <XAxis 
   dataKey="date" 
   stroke="#FFFFFF"
-  angle={-45}          // ✅ Move here
-  textAnchor="end"     // ✅ Move here
+  angle={-45}          // Move here
+  textAnchor="end"     // Move here
   height={60}
   interval={0}
   tick={{ 
     fill: '#FFFFFF', 
-    fontSize: 12       // ✅ Only styling props in tick
+    fontSize: 12       // Only styling props in tick
   }}
 />
 <YAxis 
