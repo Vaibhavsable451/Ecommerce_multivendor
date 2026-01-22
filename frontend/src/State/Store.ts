@@ -1,8 +1,8 @@
 
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { thunk } from "redux-thunk";
-import sellerSlice from "./seller/sellerSlice";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { thunk } from 'redux-thunk';
+import sellerSlice from './seller/sellerSlice';
 import sellerProductSlice from './seller/sellerProductSlice'
 import productSlice from './customer/ProductSlice'
 import authSlice from './AuthSlice';
@@ -16,11 +16,11 @@ import adminCouponReducer from './admin/AdminCouponSlice'
 import customerSlice from './customer/customerSlice'
 import dealSlice from './admin/DealSlice';
 import reviewSlice from './customer/ReviewSlice';
-import revenueChartSlice from "./seller/revenueChartSlice";
-import revenueSlice from "./seller/revenueSlice";
-import payoutSlice from "./seller/payoutSlice";
+import revenueChartSlice from './seller/revenueChartSlice';
+import revenueSlice from './seller/revenueSlice';
+import payoutSlice from './seller/payoutSlice';
 import sellerProfileSlice from './seller/sellerProfileSlice'
-import AiChatBotSlice from "./customer/AiChatBotSlice";
+import AiChatBotSlice from './customer/AiChatBotSlice';
 import sellerAuthReducer from './seller/sellerAuthSlice';
 import adminReportReducer from './admin/adminReportSlice';
 

@@ -1,5 +1,5 @@
-import { Product } from "./ProductTypes";
-import { Address, User } from "./userTypes";
+import { Product } from './ProductTypes';
+import { Address, User } from './userTypes';
 
 
 

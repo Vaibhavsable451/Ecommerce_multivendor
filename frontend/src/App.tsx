@@ -4,7 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import StripeCheckoutForm from './component/StripeCheckoutForm';
 import logo from './logo.svg';
 import './App.css';
-import { Button, ThemeProvider } from "@mui/material";
+import { Button, ThemeProvider } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Navbar from './customer/components/Navbar/Navbar';
 import customeTheme from './Theme/customeTheme';

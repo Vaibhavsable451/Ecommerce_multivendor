@@ -1,8 +1,8 @@
-import { Box, Divider } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { Description } from "@mui/icons-material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Box, Divider } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Description } from '@mui/icons-material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const steps = [
     { name: "Order Placed", description: "on Thu, 11 Jul", value: "PLACED" },

@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { Payouts } from 'types/Payouts";
-import { api } from "../../config/Api";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { Payouts } from 'types/Payouts';
+import { api } from '../../config/Api';
 
 
 interface PayoutsState {

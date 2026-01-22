@@ -2,7 +2,7 @@ import { Button, Divider, FormControl, FormControlLabel, FormLabel, Radio, Radio
 import { teal } from '@mui/material/colors'
 import React, { useState, useEffect } from 'react'
 import { colors } from '../../../data/Filter/color'
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from 'react-router-dom';
 import { price } from '../../../data/Filter/price';
 import { discount } from '../../../data/Filter/discount';
 

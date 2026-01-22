@@ -1,10 +1,10 @@
 // types/payoutsTypes.ts
 
-import { Transaction } from 'State/seller/transactionSlice";
-import { Order } from "./orderTypes";
-import { Seller } from "./SellerTypes";
+import { Transaction } from 'State/seller/transactionSlice';
+import { Order } from './orderTypes';
+import { Seller } from './SellerTypes';
 
-import { User } from "./userTypes";
+import { User } from './userTypes';
 
 export interface Payouts {
   id: number;

@@ -1,4 +1,4 @@
-import { HomeCategory } from "./HomeCategoryTypes";
+import { HomeCategory } from './HomeCategoryTypes';
 
 
 export interface Deal{

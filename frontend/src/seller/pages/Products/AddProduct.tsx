@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React, { useEffect, useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   TextField,
   Button,
@@ -15,27 +15,27 @@ import {
   Snackbar,
   Alert,
  
-} from "@mui/material";
+} from '@mui/material';
 import "tailwindcss/tailwind.css";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import CloseIcon from "@mui/icons-material/Close";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import CloseIcon from '@mui/icons-material/Close';
 
-import { isTemplateMiddle } from "typescript";
-import { menLevelTwo } from "../../../data/category/level two/menLevelTwo";
-import { womenLevelTwo } from "../../../data/category/level two/womenLevelTwo";
-import { menLevelThree } from "../../../data/category/level three/menLevelThree";
-import { womenLevelThree } from "../../../data/category/level three/womenLevelThree";
-import { colors } from "../../../data/Filter/color";
+import { isTemplateMiddle } from 'typescript';
+import { menLevelTwo } from '../../../data/category/level two/menLevelTwo';
+import { womenLevelTwo } from '../../../data/category/level two/womenLevelTwo';
+import { menLevelThree } from '../../../data/category/level three/menLevelThree';
+import { womenLevelThree } from '../../../data/category/level three/womenLevelThree';
+import { colors } from '../../../data/Filter/color';
 
-import { electronicsLevelThree } from "../../../data/category/level three/electronicsLevelThree";
+import { electronicsLevelThree } from '../../../data/category/level three/electronicsLevelThree';
 
-import { furnitureLevelThree } from "../../../data/category/level three/furnitureLevelThree";
-import { furnitureLevelTwo } from "../../../data/category/level two/furnitureLevelTwo";
-import { electronicsLevelTwo } from "../../../data/category/level two/electronicsLevelTwo";
-import { mainCategory } from "../../../data/mainCategory";
-import { uploadToCloudinary } from 'Util/uploadToCloudinary";
+import { furnitureLevelThree } from '../../../data/category/level three/furnitureLevelThree';
+import { furnitureLevelTwo } from '../../../data/category/level two/furnitureLevelTwo';
+import { electronicsLevelTwo } from '../../../data/category/level two/electronicsLevelTwo';
+import { mainCategory } from '../../../data/mainCategory';
+import { uploadToCloudinary } from 'Util/uploadToCloudinary';
 import { useAppDispatch, useAppSelector } from 'State/Store';
-import { createProduct } from 'State/seller/sellerProductSlice";
+import { createProduct } from 'State/seller/sellerProductSlice';
 
 const categoryTwo: { [key: string]: any[] } = {
   men: menLevelTwo,

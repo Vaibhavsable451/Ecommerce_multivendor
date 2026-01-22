@@ -1,5 +1,5 @@
-import { Product } from "./ProductTypes";
-import { User } from "./userTypes";
+import { Product } from './ProductTypes';
+import { User } from './userTypes';
 
 export interface Review {
     id: number;

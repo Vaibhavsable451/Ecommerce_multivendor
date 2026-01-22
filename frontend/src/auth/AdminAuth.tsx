@@ -1,4 +1,4 @@
-import AdminLoginForm from "./AdminLogin"
+import AdminLoginForm from './AdminLogin'
 
 
 const AdminAuth = () => {

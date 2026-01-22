@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { api } from "../../config/Api";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { api } from '../../config/Api';
 
 export const fetchSellerProfile = createAsyncThunk(
   "sellerProfile/fetchSellerProfile",

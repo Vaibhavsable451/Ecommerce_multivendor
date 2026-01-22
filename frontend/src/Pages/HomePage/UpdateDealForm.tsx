@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { TextField, Button, Typography, FormControl, InputLabel, Select, MenuItem, Box } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "State/Store";
-import { updateDeal } from 'State/admin/DealSlice";
-import { fetchHomeCategories } from 'State/admin/adminSlice";
-import { HomeCategory } from 'types/HomeCategoryTypes";
+import React, { useEffect } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { TextField, Button, Typography, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { updateDeal } from 'State/admin/DealSlice';
+import { fetchHomeCategories } from 'State/admin/adminSlice';
+import { HomeCategory } from 'types/HomeCategoryTypes';
 
 interface UpdateDealFormProps {
   id: number;

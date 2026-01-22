@@ -1,4 +1,4 @@
-import { Cart } from "./cartTypes";
+import { Cart } from './cartTypes';
 
 export interface Coupon {
   id: number;

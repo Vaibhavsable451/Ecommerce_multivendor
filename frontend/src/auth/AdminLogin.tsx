@@ -1,4 +1,4 @@
-import { Alert, Button, CircularProgress, Snackbar, TextField } from '@mui/material'
+﻿import { Alert, Button, CircularProgress, Snackbar, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { FormikValues, useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -112,7 +112,7 @@ const AdminLoginForm = () => {
                             <span>Resend OTP in {timer} seconds</span>
                         ) : (
                             <>
-                                Didn’t receive OTP?{" "}
+                                Didn't receive OTP?{" "}
                                 <span
                                     onClick={handleResendOTP}
                                     className="text-teal-600 cursor-pointer hover:text-teal-800 font-semibold"

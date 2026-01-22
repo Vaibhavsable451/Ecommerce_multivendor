@@ -1,11 +1,11 @@
-import React from "react";
-import { Avatar, IconButton } from "@mui/material";
-import { Rating, Box, Typography, Grid } from "@mui/material";
-import { Review } from 'types/reviewTypes";
+import React from 'react';
+import { Avatar, IconButton } from '@mui/material';
+import { Rating, Box, Typography, Grid } from '@mui/material';
+import { Review } from 'types/reviewTypes';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { red } from "@mui/material/colors";
+import { red } from '@mui/material/colors';
 import { useAppDispatch, useAppSelector } from 'State/Store';
-import { deleteReview } from 'State/customer/ReviewSlice";
+import { deleteReview } from 'State/customer/ReviewSlice';
 
 
 interface ProductReviewCardProps {

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import Demo from "../../components/Demo/Demo";
-import { fetchSellerReport } from 'State/seller/sellerSlice";
+import React, { useEffect } from 'react';
+import Demo from '../../components/Demo/Demo';
+import { fetchSellerReport } from 'State/seller/sellerSlice';
 
-import ReportCard from "./Report/ReportCard";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import ReportCard from './Report/ReportCard';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import {
   Box,
   FormControl,
@@ -12,9 +12,9 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
-} from "@mui/material";
+} from '@mui/material';
 import { useAppDispatch, useAppSelector } from 'State/Store';
-import SellingChart from "./SellingChart";
+import SellingChart from './SellingChart';
 
 const Chart = [
   { name: "Today", value: "today" },

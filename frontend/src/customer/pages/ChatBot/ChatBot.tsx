@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import { Box, Button, IconButton } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import { Box, Button, IconButton } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import { useAppDispatch, useAppSelector } from 'State/Store';
-import PromptMessage from "./PromptMessage";
-import ResponseMessage from "./ResponseMessage";
-import { chatBot } from 'State/customer/AiChatBotSlice";
+import PromptMessage from './PromptMessage';
+import ResponseMessage from './ResponseMessage';
+import { chatBot } from 'State/customer/AiChatBotSlice';
 
 interface ChatBotProps{
     handleClose:(e:any)=>void;

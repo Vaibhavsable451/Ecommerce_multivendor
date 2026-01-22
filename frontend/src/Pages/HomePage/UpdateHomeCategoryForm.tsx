@@ -1,6 +1,6 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   Button,
   TextField,
@@ -11,7 +11,7 @@ import {
   Select,
   Box,
   FormHelperText,
-} from "@mui/material";
+} from '@mui/material';
 // Data imports
 import { mainCategory } from '../../../data/mainCategory';
 

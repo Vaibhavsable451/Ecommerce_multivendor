@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import store, { useAppDispatch, useAppSelector } from 'State/Store'
 import { useFormik } from 'formik'
 import { Button, CircularProgress, FormControlLabel, Radio, RadioGroup, TextField, Snackbar, Alert } from '@mui/material'
@@ -144,7 +144,7 @@ const LoginForm = () => {
                             <span>Resend OTP in {timer} seconds</span>
                         ) : (
                             <>
-                                Didn’t receive OTP?{" "}
+                                Didn't receive OTP?{" "}
                                 <span
                                     onClick={handleResendOTP}
                                     className="text-teal-600 cursor-pointer hover:text-teal-800 font-semibold"

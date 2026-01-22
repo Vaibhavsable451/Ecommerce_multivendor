@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { api } from "../../config/Api";
-import { Product } from 'types/ProductTypes";
-import { PaginatedResponse } from 'types/ApiResponseTypes";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { api } from '../../config/Api';
+import { Product } from 'types/ProductTypes';
+import { PaginatedResponse } from 'types/ApiResponseTypes';
 
 const API_URL = "/products";
 

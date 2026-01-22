@@ -11,9 +11,9 @@ import {
     IconButton,
     CircularProgress,
 } from '@mui/material';
-import CloseIcon from "@mui/icons-material/Close";
+import CloseIcon from '@mui/icons-material/Close';
 
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch } from 'State/Store';

@@ -1,6 +1,6 @@
 
-import { Product } from "./ProductTypes";
-import { User } from "./userTypes";
+import { Product } from './ProductTypes';
+import { User } from './userTypes';
 
 export interface Wishlist {
   id: number;
