@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchRevenueData } from '../../../State/seller/revenueSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchRevenueData } from 'State/seller/revenueSlice';
 
 interface SellingChartProps {
   chartType: string;

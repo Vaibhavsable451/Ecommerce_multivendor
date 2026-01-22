@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import WishlistProductCard from './WishlistProductCard'
-import { useAppDispatch, useAppSelector } from '../../State/Store'
-import { getWishlistByUserId } from '../../State/customer/wishlistSlice'
+import { useAppDispatch, useAppSelector } from 'State/Store'
+import { getWishlistByUserId } from 'State/customer/wishlistSlice'
 import Products from '../../seller/pages/Products/Products';
 
 const Wishlist = () => {

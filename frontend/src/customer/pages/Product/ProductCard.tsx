@@ -3,10 +3,10 @@ import "./ProductCard.css"
 import { Button } from '@mui/material'
 import { Favorite, ModeComment } from '@mui/icons-material'
 import { teal } from '@mui/material/colors'
-import { Product } from '../../../types/ProductTypes'
+import { Product } from 'types/ProductTypes'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../State/Store'
-import { addProductToWishlist } from '../../../State/customer/wishlistSlice'
+import { useAppDispatch } from 'State/Store'
+import { addProductToWishlist } from 'State/customer/wishlistSlice'
 
 const ProductCard = ({item}:{item:Product}) => {
   const [currentImage, setCurrentImage] = useState(0)

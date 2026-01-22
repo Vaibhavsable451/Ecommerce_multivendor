@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import AdminDrawerList from '../../components/AdminDrawerList'
 import AdminRoutes from '../../Routes/AdminRoutes'
-import { useAppDispatch } from '../../State/Store'
-import { fetchHomeCategories } from '../../State/admin/adminSlice'
+import { useAppDispatch } from 'State/Store'
+import { fetchHomeCategories } from 'State/admin/adminSlice'
 
 const AdminDashboard = () => {
   const toggleDrawer = ()=>{}

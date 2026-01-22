@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Product } from '../../../types/ProductTypes';
+import { Product } from 'types/ProductTypes';
 
 interface ProductCardProps {
   product: Product;

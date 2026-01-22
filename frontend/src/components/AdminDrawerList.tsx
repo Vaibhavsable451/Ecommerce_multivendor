@@ -1,5 +1,5 @@
 import React from 'react'
-import DrawerList from '../../component/DrawerList'
+import DrawerList from '../component/DrawerList'
 import { AccountBox, Add, Assessment, Category, Dashboard, ElectricBolt, Home, IntegrationInstructions, LocalOffer, Logout } from '@mui/icons-material';
 const menu = [
   {

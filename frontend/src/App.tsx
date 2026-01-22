@@ -22,14 +22,14 @@ import AdminDashboard from './Pages/Dashboard/AdminDashboard';
 import AdminAuth from './auth/AdminAuth';
 
 
-import store, { useAppDispatch, useAppSelector } from './State/Store';
-import { fetchSellerProfile } from './State/seller/sellerSlice';
-import { fetchProducts } from './State/fetchProduct';
+import store, { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchSellerProfile } from 'State/seller/sellerSlice';
+import { fetchProducts } from 'State/fetchProduct';
 import Auth from './customer/pages/Auth/Auth';
-import { fetchUserProfile } from './State/AuthSlice';
+import { fetchUserProfile } from 'State/AuthSlice';
 import PaymentSuccess from './customer/pages/PaymentSuccess';
 import Wishlist from './customer/Wishlist/Wishlist';
-import { createHomeCategories } from './State/customer/customerSlice';
+import { createHomeCategories } from 'State/customer/customerSlice';
 import { homeCategories } from './data/HomeCategories';
 import SearchProducts from './customer/pages/SearchProducts/SearchProducts';
 import Footer from './customer/components/Footer/Footer';

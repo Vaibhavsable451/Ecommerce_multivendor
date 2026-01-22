@@ -4,8 +4,8 @@ import { Box, Divider, FormControl, IconButton, InputLabel, MenuItem, Pagination
 import { FilterAlt } from '@mui/icons-material'
 import FilterSection from './FilterSection'
 import ProductCard from './ProductCard'
-import  { useAppDispatch, useAppSelector } from '../../../State/Store'
-import { fetchAllProducts } from '../../../State/customer/ProductSlice'
+import  { useAppDispatch, useAppSelector } from 'State/Store'
+import { fetchAllProducts } from 'State/customer/ProductSlice'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 const Product = () => {

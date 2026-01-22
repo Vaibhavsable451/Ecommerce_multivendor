@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '../../../State/Store';
-import type { SellerProfile } from '../../../State/seller/sellerProfileSlice';
-import { fetchSellerProfile } from '../../../State/seller/sellerProfileSlice';
+import { useAppSelector, useAppDispatch } from 'State/Store';
+import type { SellerProfile } from 'State/seller/sellerProfileSlice';
+import { fetchSellerProfile } from 'State/seller/sellerProfileSlice';
 
 const Profile = () => {
   const dispatch = useAppDispatch();

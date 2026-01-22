@@ -2,7 +2,7 @@ import React from 'react'
 import AddCardIcon from '@mui/icons-material/AddCard';
 import { teal } from '@mui/material/colors';
 
-import { useAppSelector } from '../../../State/Store';
+import { useAppSelector } from 'State/Store';
 
 const SavedCards = () => {
   const { user } = useAppSelector(store => store.auth);

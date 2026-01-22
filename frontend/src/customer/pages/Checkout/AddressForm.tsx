@@ -2,8 +2,8 @@ import { Box, Button, Grid2, TextField } from '@mui/material'
 import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup'
-import { useAppDispatch } from '../../../State/Store'
-import { createOrder } from '../../../State/customer/OrderSlice'
+import { useAppDispatch } from 'State/Store'
+import { createOrder } from 'State/customer/OrderSlice'
 
 const AddressFormSchema = Yup.object().shape({
 

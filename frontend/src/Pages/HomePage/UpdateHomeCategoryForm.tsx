@@ -28,11 +28,11 @@ import { furnitureLevelThree } from '../../../data/category/level three/furnitur
 import { electronicsLevelThree } from '../../../data/category/level three/electronicsLevelThree';
 
 // Redux imports
-import { useAppDispatch } from '../../../State/Store';
-import { updateHomeCategory } from '../../../State/admin/adminSlice';
+import { useAppDispatch } from 'State/Store';
+import { updateHomeCategory } from 'State/admin/adminSlice';
 
 // Types
-import { HomeCategory } from '../../../types/HomeCategoryTypes';
+import { HomeCategory } from 'types/HomeCategoryTypes';
 
 // Define validation schema using Yup
 const validationSchema = Yup.object({

@@ -2,7 +2,7 @@ import React from 'react'
 
 import AddressCard from '../Checkout/AddressCard'
 import UserAddressCard from './UserAddressCard'
-import { useAppSelector } from '../../../State/Store'
+import { useAppSelector } from 'State/Store'
 
 const Addresses = () => {
     const { user } = useAppSelector(store => store.auth);

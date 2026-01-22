@@ -2,7 +2,7 @@ import { ElectricBolt } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import { teal } from '@mui/material/colors'
 import React from 'react'
-import { Order, OrderItem } from '../../../types/orderTypes'
+import { Order, OrderItem } from 'types/orderTypes'
 import { useNavigate } from 'react-router-dom'
 
 const OrderItemCard = ({item,order}:{item:OrderItem,order:Order}) => {

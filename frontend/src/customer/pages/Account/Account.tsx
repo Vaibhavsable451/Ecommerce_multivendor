@@ -5,8 +5,8 @@ import Orders from './Orders'
 import OrderDetails from './OrderDetails'
 import UserDetails from './UserDetails'
 import Address from './Address'
-import { useAppDispatch } from '../../../State/Store'
-import { logout } from '../../../State/AuthSlice'
+import { useAppDispatch } from 'State/Store'
+import { logout } from 'State/AuthSlice'
 const menu = [
   { name: "orders", path: "/account/orders" },
   { name: "profile", path: "/account" },

@@ -2,9 +2,9 @@ import { Button, TextField, Snackbar, Alert, CircularProgress } from '@mui/mater
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { sendLoginSignupOtp } from '../../../State/AuthSlice'
-import { useAppDispatch } from '../../../State/Store'
-import { sellerLogin } from '../../../State/seller/sellerAuthSlice'
+import { sendLoginSignupOtp } from 'State/AuthSlice'
+import { useAppDispatch } from 'State/Store'
+import { sellerLogin } from 'State/seller/sellerAuthSlice'
 
 const SellerLoginForm = () => {
   const dispatch = useAppDispatch()

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import ProfileFieldCard from '../../../component/ProfileFieldCard'
 import { Divider, Button, TextField } from '@mui/material'
-import { useAppSelector } from '../../../State/Store'
-import { validateEmail, validateMobile } from '../../../Util/validation'
+import { useAppSelector } from 'State/Store'
+import { validateEmail, validateMobile } from 'Util/validation'
 
 const UserDetails = () => {
   const {auth}=useAppSelector(store =>store);

@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User } from '../../types/userTypes';
-import { Order } from '../../types/orderTypes';
-import { Seller } from '../../types/SellerTypes';
+import { User } from 'types/userTypes';
+import { Order } from 'types/orderTypes';
+import { Seller } from 'types/SellerTypes';
 import { api } from '../../config/Api';
 
 

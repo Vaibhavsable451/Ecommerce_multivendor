@@ -7,9 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchSellerProducts } from '../../../State/seller/sellerProductSlice';
-import { Product } from '../../../types/ProductTypes';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchSellerProducts } from 'State/seller/sellerProductSlice';
+import { Product } from 'types/ProductTypes';
 import { Button, IconButton } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 

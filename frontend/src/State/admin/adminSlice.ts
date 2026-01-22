@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import { HomeCategory } from '../../types/HomeCategoryTypes';
+import { HomeCategory } from 'types/HomeCategoryTypes';
 import { api } from '../../config/Api';
 
 

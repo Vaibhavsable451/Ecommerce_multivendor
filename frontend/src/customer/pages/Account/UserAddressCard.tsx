@@ -1,5 +1,5 @@
 import React from 'react'
-import { Address } from '../../../types/userTypes'
+import { Address } from 'types/userTypes'
 
 const UserAddressCard = ({item}:{item: Address}) => {
   return (

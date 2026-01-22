@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import OrderItemCard from './OrderItemCard'
-import { useAppDispatch, useAppSelector } from '../../../State/Store'
-import { fetchUserOrderHistory } from '../../../State/customer/OrderSlice'
+import { useAppDispatch, useAppSelector } from 'State/Store'
+import { fetchUserOrderHistory } from 'State/customer/OrderSlice'
 import LoadingSpinner from '../../../component/LoadingSpinner'
-import { Order, OrderItem } from '../../../types/orderTypes'
+import { Order, OrderItem } from 'types/orderTypes'
 
 type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
 

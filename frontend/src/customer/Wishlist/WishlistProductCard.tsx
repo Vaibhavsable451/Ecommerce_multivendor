@@ -1,9 +1,9 @@
 import React from 'react'
-import { Product } from '../../types/ProductTypes'
+import { Product } from 'types/ProductTypes'
 import { Button } from '@mui/material'
 import { Close } from '@mui/icons-material'
-import { useAppDispatch } from '../../State/Store'
-import { addProductToWishlist } from '../../State/customer/wishlistSlice'
+import { useAppDispatch } from 'State/Store'
+import { addProductToWishlist } from 'State/customer/wishlistSlice'
 import { teal } from '@mui/material/colors'
 
 const WishlistProductCard = ({item}:{item:Product}) => {

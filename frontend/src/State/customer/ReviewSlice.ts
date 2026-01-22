@@ -5,7 +5,7 @@ import {
   CreateReviewRequest,
   Review,
   ReviewState,
-} from "../../types/reviewTypes";
+} from 'types/reviewTypes";
 import { RootState } from "../Store";
 import { api } from "../../config/Api";
 

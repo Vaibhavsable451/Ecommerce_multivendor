@@ -2,8 +2,8 @@
 import { Divider, ListItemIcon, ListItemText } from '@mui/material'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../State/Store'
-import { logout } from '../State/AuthSlice'
+import { useAppDispatch } from 'State/Store'
+import { logout } from 'State/AuthSlice'
 
 interface menuItem{
   name:string,

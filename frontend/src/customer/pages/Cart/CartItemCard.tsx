@@ -1,9 +1,9 @@
 import { Add, Close, Remove } from '@mui/icons-material'
 import { Button, Divider, IconButton } from '@mui/material'
 import React from 'react'
-import { CartItems } from '../../../types/cartTypes'
-import { useAppDispatch } from '../../../State/Store'
-import { updateCartItem, deleteCartItem } from '../../../State/customer/cartSlice'
+import { CartItems } from 'types/cartTypes'
+import { useAppDispatch } from 'State/Store'
+import { updateCartItem, deleteCartItem } from 'State/customer/cartSlice'
 
 const CartItemCard = ({item}:{item:CartItems}) => {
   const dispatch=useAppDispatch()

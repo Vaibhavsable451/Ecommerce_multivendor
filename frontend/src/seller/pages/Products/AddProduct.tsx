@@ -33,9 +33,9 @@ import { furnitureLevelThree } from "../../../data/category/level three/furnitur
 import { furnitureLevelTwo } from "../../../data/category/level two/furnitureLevelTwo";
 import { electronicsLevelTwo } from "../../../data/category/level two/electronicsLevelTwo";
 import { mainCategory } from "../../../data/mainCategory";
-import { uploadToCloudinary } from "../../../Util/uploadToCloudinary";
-import { useAppDispatch, useAppSelector } from "../../../State/Store";
-import { createProduct } from "../../../State/seller/sellerProductSlice";
+import { uploadToCloudinary } from 'Util/uploadToCloudinary";
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { createProduct } from 'State/seller/sellerProductSlice";
 
 const categoryTwo: { [key: string]: any[] } = {
   men: menLevelTwo,

@@ -2,7 +2,7 @@ import React from 'react'
 import ReviewCard from './ReviewCard'
 import { Divider } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { addItemToCart } from '../../../State/customer/cartSlice'
+import { addItemToCart } from 'State/customer/cartSlice'
 
 interface ReviewProps {
   reviews: {

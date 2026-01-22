@@ -1,6 +1,6 @@
 import React from 'react'
 import ShopByCategoryCard from './ShopByCategoryCard'
-import { useAppSelector } from '../../../../State/Store';
+import { useAppSelector } from 'State/Store';
 
 const ShopByCategory = () => {
    const {customer}=useAppSelector(store=>store);

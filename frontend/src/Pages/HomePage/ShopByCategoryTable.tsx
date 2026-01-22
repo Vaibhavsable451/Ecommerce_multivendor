@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import HomeCategoryTable from './HomeCategoryTable'
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchHomePageData } from '../../../State/customer/customerSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchHomePageData } from 'State/customer/customerSlice';
 import { CircularProgress, Typography } from '@mui/material';
-import { getErrorMessage } from '../../../Util/errorHandler';
+import { getErrorMessage } from 'Util/errorHandler';
 
 const ShopByCategoryTable = () => {
   const dispatch = useAppDispatch();

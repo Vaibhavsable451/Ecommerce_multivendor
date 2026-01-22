@@ -1,6 +1,6 @@
 import React from 'react'
 import ElectricCategoryCard from './ElectricCategory/ElectricCategoryCard'
-import store, { useAppSelector } from '../../../State/Store'
+import store, { useAppSelector } from 'State/Store'
 
 
 const ElectricCategory = () => {

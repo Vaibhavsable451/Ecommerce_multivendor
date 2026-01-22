@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { useAppDispatch } from '../../State/Store'
-import { paymentSuccess } from '../../State/customer/OrderSlice'
+import { useAppDispatch } from 'State/Store'
+import { paymentSuccess } from 'State/customer/OrderSlice'
 
 const PaymentSuccess = () => {
   const navigate=useNavigate()

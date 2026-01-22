@@ -1,9 +1,9 @@
 import { Alert, Box, Button, CircularProgress, FormControl, FormHelperText, InputLabel, MenuItem, Select, Snackbar, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { createDeal } from '../../../State/admin/DealSlice';
-import { fetchHomePageData } from '../../../State/customer/customerSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { createDeal } from 'State/admin/DealSlice';
+import { fetchHomePageData } from 'State/customer/customerSlice';
 import * as Yup from 'yup';
 
 const CreateDealFrom = () => {

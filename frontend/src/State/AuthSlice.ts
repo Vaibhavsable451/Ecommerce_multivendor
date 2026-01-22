@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../config/Api";
-import { User } from "../types/userTypes";
+import { User } from 'types/userTypes";
 
 // ✅ Fix: Use unique action types instead of URL paths
 export const sendLoginSignupOtp = createAsyncThunk("/auth/sendLoginSignupOtp",

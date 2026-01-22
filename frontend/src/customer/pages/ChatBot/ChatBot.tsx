@@ -5,10 +5,10 @@ import SendIcon from "@mui/icons-material/Send";
 
 import { useSelector } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
-import { useAppDispatch, useAppSelector } from "../../../State/Store";
+import { useAppDispatch, useAppSelector } from 'State/Store';
 import PromptMessage from "./PromptMessage";
 import ResponseMessage from "./ResponseMessage";
-import { chatBot } from "../../../State/customer/AiChatBotSlice";
+import { chatBot } from 'State/customer/AiChatBotSlice";
 
 interface ChatBotProps{
     handleClose:(e:any)=>void;

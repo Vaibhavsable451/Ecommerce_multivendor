@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Typography, Box, Snackbar, Alert } from '@mui/material';
-import store, { useAppSelector } from '../../../State/Store';
+import store, { useAppSelector } from 'State/Store';
 import React, { useState } from 'react';
 import TransactionTable from './Transaction';
 import { generateBill, BillRequest } from '../../../services/billService';

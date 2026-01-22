@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Product } from '../../../types/ProductTypes'
-import { fetchAllProducts } from '../../../State/customer/ProductSlice'
+import { Product } from 'types/ProductTypes'
+import { fetchAllProducts } from 'State/customer/ProductSlice'
 import SimilarProductCard from './SimilarProductCard'
-import { PaginatedResponse } from '../../../types/ApiResponseTypes'
-import { AppDispatch, useAppSelector } from '../../../State/Store'
+import { PaginatedResponse } from 'types/ApiResponseTypes'
+import { AppDispatch, useAppSelector } from 'State/Store'
 
 interface SimilarProductProps {
   categoryId?: string;

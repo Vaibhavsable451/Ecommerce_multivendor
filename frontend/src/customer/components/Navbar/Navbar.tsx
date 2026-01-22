@@ -9,7 +9,7 @@ import Categorysheet from './Categorysheet';
 import { mainCategory } from '../../../data/mainCategory';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import store, { useAppSelector } from '../../../State/Store';
+import store, { useAppSelector } from 'State/Store';
 import Cart from '../../pages/Cart/Cart';
 
 const Navbar = () => {

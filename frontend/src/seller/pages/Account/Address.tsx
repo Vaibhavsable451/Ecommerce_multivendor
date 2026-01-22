@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '../../../State/Store';
-// import { fetchSellerAddress } from '../../../State/seller/sellerAddressSlice';
+import { useAppSelector, useAppDispatch } from 'State/Store';
+// import { fetchSellerAddress } from 'State/seller/sellerAddressSlice';
 
 const Address = () => {
   // const dispatch = useAppDispatch();

@@ -5,8 +5,8 @@ import { teal } from '@mui/material/colors'
 import { Button, IconButton, TextField } from '@mui/material'
 import PricingCard from './PricingCard'
 import { useNavigate } from 'react-router-dom'
-import store, { useAppDispatch, useAppSelector } from '../../../State/Store'
-import { fetchUserCart } from '../../../State/customer/cartSlice'
+import store, { useAppDispatch, useAppSelector } from 'State/Store'
+import { fetchUserCart } from 'State/customer/cartSlice'
 
 
 

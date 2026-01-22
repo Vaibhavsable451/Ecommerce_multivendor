@@ -2,7 +2,7 @@
 
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { api } from "../../config/Api";
-import { ApiResponse, Deal, DealsState } from "../../types/dealTypes";
+import { ApiResponse, Deal, DealsState } from 'types/dealTypes";
 
 // Define the initial state
 const initialState: DealsState = {

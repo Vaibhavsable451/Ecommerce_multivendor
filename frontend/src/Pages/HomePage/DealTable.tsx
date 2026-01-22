@@ -9,9 +9,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, IconButton, CircularProgress, Typography } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
-import store, { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { deleteDeal, getAllDeals } from '../../../State/admin/DealSlice';
-import { getErrorMessage } from '../../../Util/errorHandler';
+import store, { useAppDispatch, useAppSelector } from 'State/Store';
+import { deleteDeal, getAllDeals } from 'State/admin/DealSlice';
+import { getErrorMessage } from 'Util/errorHandler';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

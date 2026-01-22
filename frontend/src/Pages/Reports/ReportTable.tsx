@@ -13,7 +13,7 @@ import {
   Typography 
 } from '@mui/material';
 import { Download, Visibility } from '@mui/icons-material';
-import { ReportData } from '../../../State/admin/adminReportSlice';
+import { ReportData } from 'State/admin/adminReportSlice';
 import { useNavigate } from 'react-router-dom';
 
 interface ReportTableProps {

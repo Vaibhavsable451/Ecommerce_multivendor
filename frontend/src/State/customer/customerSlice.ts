@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { HomeCategory, HomeData } from '../../types/HomeCategoryTypes';
+import { HomeCategory, HomeData } from 'types/HomeCategoryTypes';
 import { api } from '../../config/Api';
 
 export const fetchHomePageData = createAsyncThunk(

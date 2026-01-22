@@ -8,7 +8,7 @@ import SavedCards from './SavedCards'
 import OrderDetails from './OrderDetails'
 
 import userEvent from '@testing-library/user-event'
-import { useAppDispatch, useAppSelector } from '../../../State/Store'
+import { useAppDispatch, useAppSelector } from 'State/Store'
 import Addresses from './Address'
 import Orders from './Orders'
 

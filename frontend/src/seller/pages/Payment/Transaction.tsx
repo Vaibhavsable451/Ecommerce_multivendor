@@ -7,8 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import store, { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchTransactionsBySeller } from '../../../State/seller/transactionSlice';
+import store, { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchTransactionsBySeller } from 'State/seller/transactionSlice';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import { Edit } from '@mui/icons-material';
-import { HomeCategory } from '../../../types/HomeCategoryTypes';
+import { HomeCategory } from 'types/HomeCategoryTypes';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

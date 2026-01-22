@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ShopByCategory.css"
-import { HomeCategory } from '../../../../types/HomeCategoryTypes'
+import { HomeCategory } from 'types/HomeCategoryTypes'
 import { useNavigate } from 'react-router-dom'
 
 const ShopByCategoryCard = ({ item }: { item: HomeCategory }) => {

@@ -10,8 +10,8 @@ import React, { useEffect } from "react";
 import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
 import PricingCard from "../Cart/PricingCard";
-import { useAppDispatch, useAppSelector } from "../../../State/Store";
-import { fetchUserCart } from "../../../State/customer/cartSlice";
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchUserCart } from 'State/customer/cartSlice";
 
 const style = {
   position: "absolute",

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import store, { useAppDispatch, useAppSelector } from '../../../State/Store'
+import store, { useAppDispatch, useAppSelector } from 'State/Store'
 import { useFormik } from 'formik'
 import { Button, CircularProgress, FormControlLabel, Radio, RadioGroup, TextField, Snackbar, Alert } from '@mui/material'
-import { sendLoginSignupOtp, signin } from '../../../State/AuthSlice'
+import { sendLoginSignupOtp, signin } from 'State/AuthSlice'
 import { useNavigate } from 'react-router-dom'
 import OTPInput from '../../components/otpfiled/OTPInput'
-import { sellerLogin } from '../../../State/seller/sellerAuthSlice'
+import { sellerLogin } from 'State/seller/sellerAuthSlice'
 
 const LoginForm = () => {
   const navigate = useNavigate();

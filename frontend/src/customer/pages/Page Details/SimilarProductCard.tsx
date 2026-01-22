@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SimilarProductProps } from '../../../types/SimilarProductTypes'
+import { SimilarProductProps } from 'types/SimilarProductTypes'
 import { useNavigate } from 'react-router-dom';
 
 const SimilarProductCard = ({ product }: any) => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Demo from "../../components/Demo/Demo";
-import { fetchSellerReport } from "../../../State/seller/sellerSlice";
+import { fetchSellerReport } from 'State/seller/sellerSlice";
 
 import ReportCard from "./Report/ReportCard";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
@@ -13,7 +13,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../../../State/Store";
+import { useAppDispatch, useAppSelector } from 'State/Store';
 import SellingChart from "./SellingChart";
 
 const Chart = [

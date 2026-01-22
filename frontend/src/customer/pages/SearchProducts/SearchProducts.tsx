@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { searchProduct } from '../../../State/customer/ProductSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { searchProduct } from 'State/customer/ProductSlice';
 import ProductCard from '../Product/ProductCard';
 import { useLocation } from 'react-router-dom';
 

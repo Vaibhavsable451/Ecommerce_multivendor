@@ -15,13 +15,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ZoomableImage from './ZoomableImage';
 
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchProductById, fetchAllProducts } from '../../../State/customer/ProductSlice';
-import { fetchReviewsByProductId } from '../../../State/customer/ReviewSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchProductById, fetchAllProducts } from 'State/customer/ProductSlice';
+import { fetchReviewsByProductId } from 'State/customer/ReviewSlice';
 import ReviewCard from '../Review/ReviewCard';
 import ProductReviewCard from '../Review/ProductReviewCard';
 import SimilarProduct from './SimilarProduct';
-import { addItemToCart } from '../../../State/customer/cartSlice';
+import { addItemToCart } from 'State/customer/cartSlice';
 
 
 

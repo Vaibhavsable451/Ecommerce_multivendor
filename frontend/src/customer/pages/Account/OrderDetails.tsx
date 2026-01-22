@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import OrderStepper from './OrderStepper'
 import { Payments } from '@mui/icons-material'
-import store, { useAppDispatch, useAppSelector } from '../../../State/Store'
-import { fetchOrderById, fetchOrderItemById } from '../../../State/customer/OrderSlice'
-import { BusinessDetails } from '../../../types/SellerTypes';
+import store, { useAppDispatch, useAppSelector } from 'State/Store'
+import { fetchOrderById, fetchOrderItemById } from 'State/customer/OrderSlice'
+import { BusinessDetails } from 'types/SellerTypes';
 
 const OrderDetails = () => {
   const navigate=useNavigate()

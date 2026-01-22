@@ -1,6 +1,6 @@
 // types/payoutsTypes.ts
 
-import { Transaction } from "../State/seller/transactionSlice";
+import { Transaction } from 'State/seller/transactionSlice";
 import { Order } from "./orderTypes";
 import { Seller } from "./SellerTypes";
 

@@ -21,8 +21,8 @@ import {
   Typography 
 } from '@mui/material';
 import { ArrowBack, Download, PictureAsPdf } from '@mui/icons-material';
-import { useAppDispatch, useAppSelector } from '../../../State/Store';
-import { fetchReportById } from '../../../State/admin/adminReportSlice';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { fetchReportById } from 'State/admin/adminReportSlice';
 
 // Import chart components
 import { 

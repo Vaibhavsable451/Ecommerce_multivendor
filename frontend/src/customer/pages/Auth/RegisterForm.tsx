@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useAppDispatch } from '../../../State/Store'
+import { useAppDispatch } from 'State/Store'
 import { useFormik } from 'formik'
-import { sendLoginSignupOtp, signup } from '../../../State/AuthSlice'
+import { sendLoginSignupOtp, signup } from 'State/AuthSlice'
 import { Button, TextField, Snackbar, Alert, CircularProgress } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 

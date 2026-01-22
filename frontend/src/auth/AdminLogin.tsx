@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useAppDispatch, useAppSelector } from '../../State/Store';
-import { sendLoginSignupOtp, adminSigninWithOtp } from '../../State/AuthSlice';
-import OTPInput from '../../customer/components/otpfiled/OTPInput';
+import { useAppDispatch, useAppSelector } from 'State/Store';
+import { sendLoginSignupOtp, adminSigninWithOtp } from 'State/AuthSlice';
+import OTPInput from '../customer/components/otpfiled/OTPInput';
 
 
 

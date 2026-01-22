@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../Store";
-import { Seller, SellerReport } from "../../types/SellerTypes";
+import { Seller, SellerReport } from 'types/SellerTypes";
 import { api } from "../../config/Api";
 
 

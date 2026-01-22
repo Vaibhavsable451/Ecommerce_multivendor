@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Deal } from '../../../../types/dealTypes';
+import { Deal } from 'types/dealTypes';
 import { useNavigate } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';

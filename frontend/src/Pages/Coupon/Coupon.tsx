@@ -2,8 +2,8 @@ import { Delete } from '@mui/icons-material';
 import { Button, FormControl, InputLabel, MenuItem, Paper, Select, styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableHead, TableRow } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { fetchAllCoupons, deleteCoupon } from '../../../State/admin/AdminCouponSlice'
-import { useAppDispatch } from '../../../State/Store'
+import { fetchAllCoupons, deleteCoupon } from 'State/admin/AdminCouponSlice'
+import { useAppDispatch } from 'State/Store'
 
 const accountStatu = [
   { status: 'PENDING_VERIFICATION', title: 'Pending Verification', description: 'Account is created but not yet verified' },

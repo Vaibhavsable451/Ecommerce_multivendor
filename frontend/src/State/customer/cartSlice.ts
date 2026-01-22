@@ -1,13 +1,13 @@
 // src/slices/cartSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Cart, CartItems } from "../../types/cartTypes";
+import { Cart, CartItems } from 'types/cartTypes";
 
 import { RootState } from "../Store";
 
 
 import { stat } from "fs";
 import { api } from "../../config/Api";
-import { sumCartItemMrpPrice, sumCartItemSellingPrice } from "../../Util/sumCartItemMrpPrice";
+import { sumCartItemMrpPrice, sumCartItemSellingPrice } from 'Util/sumCartItemMrpPrice";
 import { applyCoupon } from "./couponSlice";
 
 interface CartState {

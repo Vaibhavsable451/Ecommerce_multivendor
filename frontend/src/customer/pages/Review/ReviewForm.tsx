@@ -16,9 +16,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAppDispatch } from '../../../State/Store';
-import { createReview } from '../../../State/customer/ReviewSlice';
-import { uploadToCloudinary } from '../../../Util/uploadToCloudinary';
+import { useAppDispatch } from 'State/Store';
+import { createReview } from 'State/customer/ReviewSlice';
+import { uploadToCloudinary } from 'Util/uploadToCloudinary';
 
 interface CreateReviewRequest {
     reviewText: string;

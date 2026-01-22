@@ -3,8 +3,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../Store";
-import { Order, OrderItem, OrderState } from "../../types/orderTypes";
-import { Address } from "../../types/userTypes";
+import { Order, OrderItem, OrderState } from 'types/orderTypes";
+import { Address } from 'types/userTypes";
 import { api } from "../../config/Api";
 
 
