@@ -101,13 +101,11 @@ useEffect(()=>{
         <Route path='/admin-login' element={<AdminAuth/>}/>
        
         <Route path="/stripe-checkout" element={
-        <Route path="/stripe-checkout" element={
           stripePromise ? (
             <Elements stripe={stripePromise}>
               <StripeCheckoutForm />
             </Elements>
           ) : null
-        }/>
         }/>
         <Route path="/search" element={<SearchProducts />} />
         <Route path="/search-products" element={<SearchProducts />} />

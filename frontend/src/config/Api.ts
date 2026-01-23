@@ -9,6 +9,7 @@ export const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 })
 
 // Add request interceptor to handle authentication
