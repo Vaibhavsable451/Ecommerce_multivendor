@@ -13,19 +13,19 @@ import {
   FormHelperText,
 } from '@mui/material';
 // Data imports
-import { mainCategory } from '../../../data/mainCategory';
+import { mainCategory } from '../../data/mainCategory';
 
 // Level Two Category imports
-import { menLevelTwo } from '../../../data/category/level two/menLevelTwo';
-import { womenLevelTwo } from '../../../data/category/level two/womenLevelTwo';
-import { furnitureLevelTwo } from '../../../data/category/level two/furnitureLevelTwo';
-import { electronicsLevelTwo } from '../../../data/category/level two/electronicsLevelTwo';
+import { menLevelTwo } from '../../data/category/level two/menLevelTwo';
+import { womenLevelTwo } from '../../data/category/level two/womenLevelTwo';
+import { furnitureLevelTwo } from '../../data/category/level two/furnitureLevelTwo';
+import { electronicsLevelTwo } from '../../data/category/level two/electronicsLevelTwo';
 
 // Level Three Category imports
-import { menLevelThree } from '../../../data/category/level three/menLevelThree';
-import { womenLevelThree } from '../../../data/category/level three/womenLevelThree';
-import { furnitureLevelThree } from '../../../data/category/level three/furnitureLevelThree';
-import { electronicsLevelThree } from '../../../data/category/level three/electronicsLevelThree';
+import { menLevelThree } from '../../data/category/level three/menLevelThree';
+import { womenLevelThree } from '../../data/category/level three/womenLevelThree';
+import { furnitureLevelThree } from '../../data/category/level three/furnitureLevelThree';
+import { electronicsLevelThree } from '../../data/category/level three/electronicsLevelThree';
 
 // Redux imports
 import { useAppDispatch } from 'State/Store';
