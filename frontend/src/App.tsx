@@ -40,7 +40,8 @@ import Footer from './customer/components/Footer/Footer';
 
 
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
+const stripePublishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : null;
 
 function App() {
     const dispatch=useAppDispatch();
@@ -100,9 +101,13 @@ useEffect(()=>{
         <Route path='/admin-login' element={<AdminAuth/>}/>
        
         <Route path="/stripe-checkout" element={
-          <Elements stripe={stripePromise}>
-            <StripeCheckoutForm />
-          </Elements>
+        <Route path="/stripe-checkout" element={
+          stripePromise ? (
+            <Elements stripe={stripePromise}>
+              <StripeCheckoutForm />
+            </Elements>
+          ) : null
+        }/>
         }/>
         <Route path="/search" element={<SearchProducts />} />
         <Route path="/search-products" element={<SearchProducts />} />
