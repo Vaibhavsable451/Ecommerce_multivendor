@@ -33,9 +33,8 @@ public class AppConfig {
                 .authorizeHttpRequests(authorize ->
                         authorize
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                                .requestMatchers("/auth/**", "/home/**", "/users/**", "/api/products/*/reviews").permitAll()
                                 .requestMatchers("/api/**").authenticated()
-                                .requestMatchers("/api/products/*/reviews").permitAll()
-                                .requestMatchers("/auth/**", "/home/**", "/users/**").permitAll()
                                 .anyRequest().permitAll()
                 )
                 .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
@@ -46,25 +45,17 @@ public class AppConfig {
     }
 
     @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public CorsFilter corsFilter() {
-        return new CorsFilter(corsConfigurationSource());
-    }
-
-
-
-    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration cfg = new CorsConfiguration();
-        cfg.setAllowedOriginPatterns(Arrays.asList(
-                "http://localhost:*", 
-                "https://*.onrender.com",
+        cfg.setAllowedOrigins(Arrays.asList(
+                "http://localhost:3000", 
+                "http://localhost:5173",
                 "https://ecommerce-multivendor-37j4.onrender.com"
         ));
         cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-        cfg.setAllowedHeaders(Collections.singletonList("*"));
+        cfg.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept", "X-Requested-With"));
         cfg.setAllowCredentials(true);
-        cfg.setExposedHeaders(Collections.singletonList("Authorization"));
+        cfg.setExposedHeaders(Arrays.asList("Authorization"));
         cfg.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
