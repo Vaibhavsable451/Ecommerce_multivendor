@@ -27,7 +27,10 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
-            filterChain.doFilter(request, response);
+            response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+            response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            response.setHeader("Access-Control-Allow-Headers", "*");
+            response.setHeader("Access-Control-Allow-Credentials", "true");
             return;
         }
 

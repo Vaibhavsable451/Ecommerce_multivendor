@@ -45,11 +45,7 @@ public class AppConfig {
         return http.build();
     }
 
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public CorsFilter corsFilter() {
-        return new CorsFilter(corsConfigurationSource());
-    }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
