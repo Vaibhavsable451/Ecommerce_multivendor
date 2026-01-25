@@ -56,9 +56,10 @@ public class AppConfig {
         CorsConfiguration cfg = new CorsConfiguration();
         cfg.setAllowedOriginPatterns(Arrays.asList(
                 "http://localhost:*", 
-                "https://*.onrender.com"
+                "https://*.onrender.com",
+                "https://ecommerce-multivendor-37j4.onrender.com"
         ));
-        cfg.setAllowedMethods(Collections.singletonList("*"));
+        cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         cfg.setAllowedHeaders(Collections.singletonList("*"));
         cfg.setAllowCredentials(true);
         cfg.setExposedHeaders(Collections.singletonList("Authorization"));
