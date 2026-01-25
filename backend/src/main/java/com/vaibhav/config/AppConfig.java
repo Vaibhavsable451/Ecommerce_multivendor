@@ -54,7 +54,10 @@ public class AppConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration cfg = new CorsConfiguration();
-        cfg.setAllowedOriginPatterns(Collections.singletonList("*"));
+        cfg.setAllowedOriginPatterns(Arrays.asList(
+                "http://localhost:*", 
+                "https://*.onrender.com"
+        ));
         cfg.setAllowedMethods(Collections.singletonList("*"));
         cfg.setAllowedHeaders(Collections.singletonList("*"));
         cfg.setAllowCredentials(true);
