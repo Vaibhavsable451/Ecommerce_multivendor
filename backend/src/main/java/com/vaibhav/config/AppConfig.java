@@ -33,13 +33,14 @@ public class AppConfig {
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize ->
                         authorize
+                                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // 🔥 VERY IMPORTANT for preflight
                                 .requestMatchers("/auth/**", "/home/**", "/users/**", "/api/products/*/reviews").permitAll()
                                 .requestMatchers("/api/**").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(Customizer.withDefaults()); // Keep this as well
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
         return http.build();
     }
