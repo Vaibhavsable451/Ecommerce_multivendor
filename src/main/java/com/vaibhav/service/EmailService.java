@@ -3,7 +3,6 @@ package com.vaibhav.service;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,15 +14,15 @@ import org.springframework.stereotype.Service;
 public class EmailService {
     private final JavaMailSender javaMailSender;
 
-    @Value("${spring.mail.username:vaibhavsable451@gmail.com}")
-    private String mailFrom;
+    @org.springframework.beans.factory.annotation.Value("${spring.mail.username}")
+    private String fromEmail;
 
     public void sendVerificationOtpEmail(String userEmail, String otp, String subject, String text) throws MessagingException {
         try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, "utf-8");
 
-            mimeMessageHelper.setFrom(mailFrom);
+            mimeMessageHelper.setFrom(fromEmail); 
             mimeMessageHelper.setTo(userEmail);
             mimeMessageHelper.setSubject(subject);
             mimeMessageHelper.setText(text, true); // true for HTML content

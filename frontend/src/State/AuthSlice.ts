@@ -1,40 +1,40 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { api } from '../config/Api';
-import { User } from 'types/userTypes';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { api } from "../config/Api";
+import { User } from "../types/userTypes";
 
-// Fix: Use unique action types instead of URL paths
-export const sendLoginSignupOtp = createAsyncThunk("/auth/sendLoginSignupOtp",
+// ✅ Fix: Use unique action types instead of URL paths
+export const sendLoginSignupOtp = createAsyncThunk("auth/sendLoginSignupOtp",
   async ({ email }: { email: string }, { rejectWithValue }) => {
     try {
       const response = await api.post("/auth/sent/login-signup-otp", { email });
       console.log("login otp:", response.data);
-      return response.data; // Return response data
+      return response.data; // ✅ Return response data
     } catch (error: any) {
       console.error("Error in sendLoginSignupOtp:", error);
-      return rejectWithValue(error.response?.data || "Something went wrong"); // Handle errors properly
+      return rejectWithValue(error.response?.data || "Something went wrong"); // ✅ Handle errors properly
     }
   }
 )
 
-export const signin = createAsyncThunk<any,any>("/auth/signin", // Fix: Use proper action type
+export const signin = createAsyncThunk<any,any>("auth/signin", // ✅ Fix: Use proper action type
   async (loginRequest: { email: string; otp: string; navigate: any }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/signing", loginRequest);
+      const response = await api.post("/auth/signin", loginRequest);
       console.log("login otp:", response.data);
       localStorage.setItem("jwt",response.data.jwt)
       loginRequest.navigate("/");
-      return response.data.jwt; // Return response data
+      return response.data.jwt; // ✅ Return response data
     } catch (error: any) {
       console.error("Error in signin:", error);
-      return rejectWithValue(error.response?.data || "Signin failed"); // Handle errors properly
+      return rejectWithValue(error.response?.data || "Signin failed"); // ✅ Handle errors properly
     }
   }
 )
 
-export const adminSigninWithOtp = createAsyncThunk<any,any>("/auth/adminSigninWithOtp",
+export const adminSigninWithOtp = createAsyncThunk<any,any>("auth/adminSigninWithOtp",
   async (loginRequest: { email: string; otp: string; navigate: any }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/signing", loginRequest);
+      const response = await api.post("/auth/signin", loginRequest);
       console.log("admin login otp:", response.data);
       localStorage.setItem("jwt", response.data.jwt);
       localStorage.setItem("adminJwt", response.data.jwt);
@@ -48,41 +48,34 @@ export const adminSigninWithOtp = createAsyncThunk<any,any>("/auth/adminSigninWi
   }
 )
 
-export const signup = createAsyncThunk<any,any>("/auth/signup", // Fix: Use proper action type
+export const signup = createAsyncThunk<any,any>("auth/signup", // ✅ Fix: Use proper action type
   async (signupRequest: { email: string; otp: string }, { rejectWithValue }) => {
     try {
       const response = await api.post("/auth/signup", signupRequest);
       console.log("login otp:", response.data);
       localStorage.setItem("jwt",response.data.jwt)
-      return response.data.jwt; // Return response data
+      return response.data.jwt; // ✅ Return response data
     } catch (error: any) {
       console.error("Error in signup:", error);
-      return rejectWithValue(error.response?.data || "Signup failed"); // Handle errors properly
+      return rejectWithValue(error.response?.data || "Signup failed"); // ✅ Handle errors properly
     }
   }
 )
 
-export const fetchUserProfile = createAsyncThunk<any,any>("/users/fetchUserProfile", // Fix: Use proper action type
-  async ({jwt}, { rejectWithValue }) => {
+export const fetchUserProfile = createAsyncThunk<any,any>("users/fetchUserProfile", // ✅ Fix: Use proper action type
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get("users/profile",{
-        headers:{
-          Authorization:`Bearer ${jwt}`,
-        },
-      })
+      const response = await api.get("/users/profile");
       console.log("user profile:", response.data);
-      return response.data; // Return response data
+      return response.data; // ✅ Return response data
     } catch (error: any) {
       console.error("Error fetching profile:", error);
-      return rejectWithValue(error.response?.data || "Profile fetch failed"); // Handle errors properly
+      return rejectWithValue(error.response?.data || "Profile fetch failed"); // ✅ Handle errors properly
     }
   }
 )
 
-
-
-
-export const adminDirectLogin = createAsyncThunk<any,any>("/auth/adminDirectLogin",
+export const adminDirectLogin = createAsyncThunk<any,any>("auth/adminDirectLogin",
   async (adminCredentials: { email: string; password: string; navigate: any }, { rejectWithValue }) => {
     try {
       const response = await api.post("/admin/login", {
@@ -118,11 +111,11 @@ interface AuthState {
   profileUpdated: any;
   error: any;
   jwt: string | null;
-  otpSent: boolean;
   isLoggedIn: boolean;
   isAdmin: boolean;
   user: User | null;
   loading: boolean;
+  otpSent: boolean;
 }
 const initialState: AuthState = {
   jwt: null,
