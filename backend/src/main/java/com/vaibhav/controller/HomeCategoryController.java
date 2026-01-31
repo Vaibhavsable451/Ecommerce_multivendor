@@ -49,7 +49,7 @@ public class HomeCategoryController {
     @PatchMapping("/admin/home-category/{id}")
     public ResponseEntity<HomeCategory> updateHomeCategory(
             @PathVariable Long id,
-            @RequestBody HomeCategory homeCategory) {
+            @RequestBody HomeCategory homeCategory) throws Exception {
 
         HomeCategory updated =
                 homeCategoryService.updateHomeCategory(homeCategory, id);
