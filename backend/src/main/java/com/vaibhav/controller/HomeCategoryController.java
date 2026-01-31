@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/home")
+@CrossOrigin(origins = "*")
 public class HomeCategoryController {
 
     private final HomeCategoryService homeCategoryService;

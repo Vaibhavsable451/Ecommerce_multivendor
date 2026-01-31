@@ -48,6 +48,7 @@ public class AppConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of(
             "https://ecommerce-multivendor-37j4.onrender.com",
+            "https://ecommerce-8frp.onrender.com",
             "http://localhost:3000",
             "http://localhost:5173"
         ));
