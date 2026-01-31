@@ -1,4 +1,4 @@
-package com.vaibhav.Controller;
+package com.vaibhav.controller;
 
 import com.vaibhav.model.Home;
 import com.vaibhav.model.HomeCategory;

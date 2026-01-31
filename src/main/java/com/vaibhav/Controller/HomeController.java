@@ -1,4 +1,4 @@
-package com.vaibhav.Controller;
+package com.vaibhav.controller;
 
 import com.vaibhav.response.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;

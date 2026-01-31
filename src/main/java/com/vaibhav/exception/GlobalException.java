@@ -10,20 +10,31 @@ import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class GlobalException {
+
     @ExceptionHandler(SellerException.class)
     public ResponseEntity<ErrorDetails> sellerExceptionHandler(SellerException se, WebRequest req) {
         ErrorDetails errorDetails = new ErrorDetails();
         errorDetails.setError(se.getMessage());
         errorDetails.setDetails(req.getDescription(false));
         errorDetails.setTimestamp(LocalDateTime.now());
-        return  new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(ProductException.class)
-    public ResponseEntity<ErrorDetails> ProductExceptionHandler(SellerException se, WebRequest req) {
+    public ResponseEntity<ErrorDetails> productExceptionHandler(ProductException se, WebRequest req) {
         ErrorDetails errorDetails = new ErrorDetails();
         errorDetails.setError(se.getMessage());
         errorDetails.setDetails(req.getDescription(false));
         errorDetails.setTimestamp(LocalDateTime.now());
-        return  new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorDetails> otherExceptionHandler(Exception e, WebRequest req) {
+        ErrorDetails errorDetails = new ErrorDetails();
+        errorDetails.setError(e.getMessage());
+        errorDetails.setDetails(req.getDescription(false));
+        errorDetails.setTimestamp(LocalDateTime.now());
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
