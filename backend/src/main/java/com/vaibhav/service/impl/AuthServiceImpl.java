@@ -53,42 +53,55 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void sentLoginOtp(String email,USER_ROLE role) throws Exception {
         String SIGNING_PREFIX ="signing_";
-     ;
-        if(email.startsWith(SIGNING_PREFIX)){
-            email=email.substring(SIGNING_PREFIX.length());
+        try {
+            log.info("Sending OTP for email: {}, role: {}", email, role);
+            
+            if(email.startsWith(SIGNING_PREFIX)){
+                email=email.substring(SIGNING_PREFIX.length());
+                log.debug("Removed signing prefix, email: {}", email);
 
-            if(USER_ROLE.ROLE_SELLER.equals(role)){
-                Seller seller=sellerRepository.findByEmail(email);
-                if (seller==null){
-                    throw new Exception("seller not found");
+                if(USER_ROLE.ROLE_SELLER.equals(role)){
+                    Seller seller=sellerRepository.findByEmail(email);
+                    if (seller==null){
+                        log.warn("Seller not found for email: {}", email);
+                        throw new Exception("seller not found");
+                    }
                 }
+                else {
+                    log.debug("Checking user existence for email: {}", email);
+                    User user=userRepository.findByEmail(email);
 
-            }
-            else {
-                System.out.println("email "+email);
-                User user=userRepository.findByEmail(email);
-
-                if(user==null){
-                    throw new Exception("user not exist provided email");
+                    if(user==null){
+                        log.warn("User not found for email: {}", email);
+                        throw new Exception("user not exist provided email");
+                    }
                 }
-
             }
+            
+            VerificationCode isExist=verificationCodeRepository.findByEmail(email);
+            if(isExist!=null){
+                log.debug("Deleting existing OTP for email: {}", email);
+                verificationCodeRepository.delete(isExist);
+            }
+            
+            String otp= OtpUtil.generateOtp();
+            log.debug("Generated OTP for email: {}", email);
+            
+            VerificationCode verificationCode=new VerificationCode();
+            verificationCode.setOtp(otp);
+            verificationCode.setEmail(email);
+            verificationCodeRepository.save(verificationCode);
+            log.debug("Saved OTP to database for email: {}", email);
 
+            String subject="vaibhav bazaar login/signup otp";
+            String text="your login/signup otp is -"+otp;
+
+            emailService.sendVerificationOtpEmail(email,otp,subject,text);
+            log.info("OTP email sent successfully to: {}", email);
+        } catch (Exception e) {
+            log.error("Error in sentLoginOtp for email: {}, role: {} - {}", email, role, e.getMessage(), e);
+            throw e;
         }
-        VerificationCode isExist=verificationCodeRepository.findByEmail(email);
-        if(isExist!=null){
-            verificationCodeRepository.delete(isExist);
-        }
-         String otp= OtpUtil.generateOtp();
-        VerificationCode verificationCode=new VerificationCode();
-          verificationCode.setOtp(otp);
-        verificationCode.setEmail(email);
-        verificationCodeRepository.save(verificationCode);
-
-        String subject="vaibhav bazaar login/signup otp";
-         String text="your login/signup otp is -"+otp;
-
-         emailService.sendVerificationOtpEmail(email,otp,subject,text);
     }
 
     @Override

@@ -41,14 +41,17 @@ public class AuthController {
     }
 
     @PostMapping("/sent/login-signup-otp")
-    public ResponseEntity<ApiResponse> sendOtpHandler(@RequestBody LoginOtpRequest req) throws Exception {
-        authService.sentLoginOtp(req.getEmail(),req.getRole());
-        ApiResponse res = new ApiResponse();
-
-        res.setMessage("otp sent successfully");
-
-
-        return ResponseEntity.ok(res);
+    public ResponseEntity<ApiResponse> sendOtpHandler(@RequestBody LoginOtpRequest req) {
+        try {
+            authService.sentLoginOtp(req.getEmail(), req.getRole());
+            ApiResponse res = new ApiResponse();
+            res.setMessage("otp sent successfully");
+            return ResponseEntity.ok(res);
+        } catch (Exception e) {
+            ApiResponse res = new ApiResponse();
+            res.setMessage("Failed to send OTP: " + e.getMessage());
+            return ResponseEntity.status(500).body(res);
+        }
     }
     @PostMapping("/signing")
    public ResponseEntity<AuthResponse> loginHandler(@RequestBody LoginRequest req) throws Exception {
