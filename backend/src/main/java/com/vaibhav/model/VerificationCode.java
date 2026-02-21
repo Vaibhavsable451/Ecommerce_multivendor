@@ -11,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode
 public class VerificationCode {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.Auto)
     private Long id;
 
     private  String otp;
