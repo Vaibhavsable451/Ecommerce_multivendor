@@ -42,6 +42,11 @@ public class AuthController {
 
     @PostMapping("/sent/login-signup-otp")
     public ResponseEntity<ApiResponse> sendOtpHandler(@RequestBody LoginOtpRequest req) {
+        if (req == null || req.getEmail() == null || req.getEmail().isBlank()) {
+            ApiResponse res = new ApiResponse();
+            res.setMessage("Email is required");
+            return ResponseEntity.badRequest().body(res);
+        }
         try {
             authService.sentLoginOtp(req.getEmail(), req.getRole());
             ApiResponse res = new ApiResponse();

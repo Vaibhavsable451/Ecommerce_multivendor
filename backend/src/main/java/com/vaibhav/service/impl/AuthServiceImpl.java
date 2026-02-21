@@ -51,8 +51,11 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public void sentLoginOtp(String email,USER_ROLE role) throws Exception {
+    public void sentLoginOtp(String email, USER_ROLE role) throws Exception {
         String SIGNING_PREFIX ="signing_";
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email is required");
+        }
         try {
             log.info("Sending OTP for email: {}, role: {}", email, role);
             

@@ -18,10 +18,14 @@ public class EmailService {
     private final JavaMailSender javaMailSender;
     private static final Logger log = LoggerFactory.getLogger(EmailService.class);
 
-    @Value("${spring.mail.username}")
+    @Value("${spring.mail.username:}")
     private String mailFrom;
 
     public void sendVerificationOtpEmail(String userEmail, String otp, String subject, String text) throws MessagingException {
+        if (mailFrom == null || mailFrom.isBlank()) {
+            log.error("MAIL_USERNAME is not set. Set MAIL_USERNAME and MAIL_PASSWORD (Gmail App Password) in environment.");
+            throw new IllegalStateException("Mail not configured: MAIL_USERNAME is not set. Set it in Render environment variables and use Gmail App Password for MAIL_PASSWORD.");
+        }
         try {
             log.info("Attempting to send OTP email to: {}", userEmail);
             log.debug("Using sender email: {}", mailFrom);
