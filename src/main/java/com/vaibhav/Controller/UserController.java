@@ -17,8 +17,7 @@ public class UserController {
 
     @GetMapping("/users/profile")
     public ResponseEntity<User> userProfileHandler(
-            @RequestHeader(name = "Authorization", required = false) String jwt
-    ) throws Exception {
+            @RequestHeader(name = "Authorization", required = false) String jwt) throws Exception {
         if (jwt == null || jwt.isEmpty()) {
             throw new Exception("Authorization token is missing. Please login.");
         }

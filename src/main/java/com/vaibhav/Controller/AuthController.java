@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -30,36 +29,30 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody SignUpRequest req) throws Exception {
-         String jwt=authService.createUser(req);
+        String jwt = authService.createUser(req);
         AuthResponse res = new AuthResponse();
-         res.setJwt(jwt);
+        res.setJwt(jwt);
         res.setMessage("register success");
         res.setRole(USER_ROLE.ROLE_CUSTOMER);
-
 
         return ResponseEntity.ok(res);
     }
 
     @PostMapping("/sent/login-signup-otp")
     public ResponseEntity<ApiResponse> sendOtpHandler(@RequestBody LoginOtpRequest req) throws Exception {
-        authService.sentLoginOtp(req.getEmail(),req.getRole());
+        authService.sentLoginOtp(req.getEmail(), req.getRole());
         ApiResponse res = new ApiResponse();
 
         res.setMessage("otp sent successfully");
 
-
         return ResponseEntity.ok(res);
     }
+
     @PostMapping("/signin")
-   public ResponseEntity<AuthResponse> loginHandler(@RequestBody LoginRequest req) throws Exception {
-        AuthResponse authResponse=authService.signing(req);
+    public ResponseEntity<AuthResponse> loginHandler(@RequestBody LoginRequest req) throws Exception {
+        AuthResponse authResponse = authService.signing(req);
         ApiResponse res = new ApiResponse();
 
-
-
-
-       return ResponseEntity.ok(authResponse);
+        return ResponseEntity.ok(authResponse);
     }
 }
-
-
