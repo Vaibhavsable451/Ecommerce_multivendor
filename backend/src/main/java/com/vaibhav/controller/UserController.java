@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.HttpStatus;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,10 +25,12 @@ public class UserController {
 
 
     @GetMapping("/users/profile")
-    public ResponseEntity<User> UserProfileHandler(
+    public ResponseEntity<?> UserProfileHandler(
             @RequestHeader("Authorization")String jwt
         )throws Exception{
-
+        if (jwt == null || !jwt.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing or invalid Authorization header");
+        }
         User user=userService.findUserByJwtToken(jwt);
          System.out.println("jwt -- "+jwt);
         return ResponseEntity.ok(user);

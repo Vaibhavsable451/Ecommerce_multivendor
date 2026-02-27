@@ -1,8 +1,6 @@
 package com.vaibhav.controller;
 
 import com.vaibhav.domain.USER_ROLE;
-import com.vaibhav.model.VerificationCode;
-import com.vaibhav.repository.UserRepository;
 import com.vaibhav.request.LoginOtpRequest;
 import com.vaibhav.request.LoginRequest;
 import com.vaibhav.response.ApiResponse;
@@ -12,6 +10,7 @@ import com.vaibhav.service.AuthService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSendException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class AuthController {
 
-    private final UserRepository userRepository;
     private final AuthService authService;
 
     @PostMapping("/signup")
@@ -52,6 +50,18 @@ public class AuthController {
             ApiResponse res = new ApiResponse();
             res.setMessage("otp sent successfully");
             return ResponseEntity.ok(res);
+        } catch (IllegalArgumentException e) {
+            ApiResponse res = new ApiResponse();
+            res.setMessage(e.getMessage());
+            return ResponseEntity.badRequest().body(res);
+        } catch (IllegalStateException e) {
+            ApiResponse res = new ApiResponse();
+            res.setMessage(e.getMessage());
+            return ResponseEntity.status(503).body(res);
+        } catch (MailSendException e) {
+            ApiResponse res = new ApiResponse();
+            res.setMessage("Failed to send OTP email. Configure MAIL_USERNAME and MAIL_PASSWORD (Gmail App Password).");
+            return ResponseEntity.status(503).body(res);
         } catch (Exception e) {
             ApiResponse res = new ApiResponse();
             res.setMessage("Failed to send OTP: " + e.getMessage());

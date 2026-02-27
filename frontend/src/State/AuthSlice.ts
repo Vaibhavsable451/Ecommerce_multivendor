@@ -19,7 +19,7 @@ export const sendLoginSignupOtp = createAsyncThunk("auth/sendLoginSignupOtp",
 export const signin = createAsyncThunk<any,any>("auth/signin", // ✅ Fix: Use proper action type
   async (loginRequest: { email: string; otp: string; navigate: any }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/signin", loginRequest);
+      const response = await api.post("/auth/signing", loginRequest);
       console.log("login otp:", response.data);
       localStorage.setItem("jwt",response.data.jwt)
       loginRequest.navigate("/");
@@ -34,7 +34,7 @@ export const signin = createAsyncThunk<any,any>("auth/signin", // ✅ Fix: Use p
 export const adminSigninWithOtp = createAsyncThunk<any,any>("auth/adminSigninWithOtp",
   async (loginRequest: { email: string; otp: string; navigate: any }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/signin", loginRequest);
+      const response = await api.post("/auth/signing", loginRequest);
       console.log("admin login otp:", response.data);
       localStorage.setItem("jwt", response.data.jwt);
       localStorage.setItem("adminJwt", response.data.jwt);
