@@ -19,7 +19,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
