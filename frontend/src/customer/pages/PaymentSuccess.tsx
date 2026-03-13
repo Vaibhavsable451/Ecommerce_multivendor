@@ -22,7 +22,7 @@ const PaymentSuccess = () => {
       ,paymentId:paymentId || ""
       ,paymentLinkId:paymentLinkId || ""
     }))
-  },[orderId])
+  },[orderId, dispatch, getQueryParam])
   return (
     <div className='min-h-[90vh] flex justify-center items-center'>
       

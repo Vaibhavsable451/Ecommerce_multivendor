@@ -3,14 +3,7 @@ import { SimilarProductProps } from 'types/SimilarProductTypes'
 import { useNavigate } from 'react-router-dom';
 
 const SimilarProductCard = ({ product }: any) => {
-    const [currentImage, setCurrentImage] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
     const navigate=useNavigate();
-
-    const handleIconClick = () => {
-        setIsFavorite((prev) => !prev);
-    };
 
 
     return (

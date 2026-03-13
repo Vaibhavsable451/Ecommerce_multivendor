@@ -11,7 +11,7 @@ interface FilterChangeEvent extends React.ChangeEvent<HTMLInputElement> {}
 const FilterSection = () => {
   const [expendColor, setExpandColor] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeFilters, setActiveFilters] = useState<Record<string, string>>({});
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const updateFilterParams = (event: FilterChangeEvent) => {
     const { value, name } = event.target;
@@ -19,14 +19,8 @@ const FilterSection = () => {
     
     if (value) {
       updatedParams.set(name, value);
-      setActiveFilters(prev => ({ ...prev, [name]: value }));
     } else {
       updatedParams.delete(name);
-      setActiveFilters(prev => {
-        const updated = { ...prev };
-        delete updated[name];
-        return updated;
-      });
     }
     
     setSearchParams(updatedParams);
@@ -34,12 +28,6 @@ const FilterSection = () => {
 
   useEffect(() => {
     // Initialize active filters from URL params
-    const newActiveFilters: Record<string, string> = {};
-    ['color', 'price', 'discount'].forEach(param => {
-      const value = searchParams.get(param);
-      if (value) newActiveFilters[param] = value;
-    });
-    setActiveFilters(newActiveFilters);
   }, [searchParams]);
 
   const handleColorToggle = () => {
@@ -48,7 +36,6 @@ const FilterSection = () => {
 
   const clearAllFilters = () => {
     setSearchParams(new URLSearchParams());
-    setActiveFilters({});
   };
 
   return (

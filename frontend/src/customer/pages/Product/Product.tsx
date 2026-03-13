@@ -49,7 +49,7 @@ const Product = () => {
   }
   dispatch(fetchAllProducts(newFilter))
 
-  },[category, searchParam])
+  },[category, searchParam, dispatch, page])
   return (
     <div className='-z-10 mt-10'>
       <div>
