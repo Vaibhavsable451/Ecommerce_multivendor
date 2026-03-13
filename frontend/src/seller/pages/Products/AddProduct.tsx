@@ -20,7 +20,6 @@ import "tailwindcss/tailwind.css";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { isTemplateMiddle } from 'typescript';
 import { menLevelTwo } from '../../../data/category/level two/menLevelTwo';
 import { womenLevelTwo } from '../../../data/category/level two/womenLevelTwo';
 import { menLevelThree } from '../../../data/category/level three/menLevelThree';

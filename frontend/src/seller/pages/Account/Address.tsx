@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from 'State/Store';
+import React from 'react';
 // import { fetchSellerAddress } from 'State/seller/sellerAddressSlice';
 
 const Address = () => {

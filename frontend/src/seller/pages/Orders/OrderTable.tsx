@@ -34,14 +34,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-const orderStatusColor = {
-  PENDING: { color: '#FFA500', label: 'PENDING' }, // Orange
-  CONFIRMED:{ color: '#F5BCBA', label: 'CONFIRMED' },
-  PLACED:{ color: '#F5BCBA', label: 'PLACED' }, 
-  SHIPPED: { color: '#1E90FF', label: 'SHIPPED' }, // DodgerBlue
-  DELIVERED: { color: '#32CD32', label: 'DELIVERED' }, // LimeGreen
-  CANCELLED: { color: '#FF0000', label: 'CANCELLED' } // Red
-};
 const orderStatus = [
   { color: '#FFA500', label: 'PENDING' }, 
   { color: '#F5BCBA', label: 'PLACED' }, 
@@ -58,7 +50,7 @@ export default function OrderTable() {
 
   React.useEffect(()=>{
    dispatch(fetchSellerOrders(localStorage.getItem("jwt") || " "))
-  },[])
+  },[dispatch])
   const [anchorEl, setAnchorEl] = React.useState<null | any>({});
   const open = Boolean(anchorEl);
   const handleClick = (event: any,orderId:number) => {
