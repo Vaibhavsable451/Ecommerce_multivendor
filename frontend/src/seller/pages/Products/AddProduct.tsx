@@ -117,7 +117,7 @@ const AddProductForm = () => {
   const childCategory = (category: any, parentCategoryId: any) => {
     return category.filter((child: any) => {
       // console.log("Category", parentCategoryId, child)
-      return child.parentCategoryId == parentCategoryId;
+      return child.parentCategoryId === parentCategoryId;
     });
   };
 

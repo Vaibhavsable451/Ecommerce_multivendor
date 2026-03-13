@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
-import Demo from '../../components/Demo/Demo';
 import { fetchSellerReport } from 'State/seller/sellerSlice';
 
 import ReportCard from './Report/ReportCard';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import {
-  Box,
   FormControl,
   InputLabel,
-  Menu,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -31,7 +28,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchSellerReport(localStorage.getItem("jwt") || ""));
-  }, []);
+  }, [dispatch]);
 
 
 
