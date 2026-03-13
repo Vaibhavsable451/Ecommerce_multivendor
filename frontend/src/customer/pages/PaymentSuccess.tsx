@@ -9,20 +9,19 @@ const PaymentSuccess = () => {
   const dispatch=useAppDispatch();
   const location=useLocation();
   const {orderId}=useParams()
-  const getQueryParam=(key:string)=>{
-    const query=new URLSearchParams(location.search)
-    return query.get(key);
-  }
-
-
-  useEffect(()=>{
-    const paymentId=getQueryParam("razorpay_payment_id")
-    const paymentLinkId=getQueryParam("razourpay_payment_link_id")
-    dispatch(paymentSuccess({jwt:localStorage.getItem("jwt") || ""
-      ,paymentId:paymentId || ""
-      ,paymentLinkId:paymentLinkId || ""
+  useEffect(() => {
+    const getQueryParam = (key: string) => {
+      const query = new URLSearchParams(location.search)
+      return query.get(key);
+    }
+    const paymentId = getQueryParam("razorpay_payment_id")
+    const paymentLinkId = getQueryParam("razourpay_payment_link_id")
+    dispatch(paymentSuccess({
+      jwt: localStorage.getItem("jwt") || ""
+      , paymentId: paymentId || ""
+      , paymentLinkId: paymentLinkId || ""
     }))
-  },[orderId, dispatch, getQueryParam])
+  }, [orderId, dispatch, location.search])
   return (
     <div className='min-h-[90vh] flex justify-center items-center'>
       

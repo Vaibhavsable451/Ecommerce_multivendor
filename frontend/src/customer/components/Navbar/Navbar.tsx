@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, IconButton, useMediaQuery, useTheme, Typography, Badge, InputBase, Paper } from '@mui/material'
+import { Avatar, Box, Button, IconButton, useMediaQuery, useTheme, Badge, InputBase, Paper } from '@mui/material'
 
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';

@@ -11,7 +11,6 @@ interface FilterChangeEvent extends React.ChangeEvent<HTMLInputElement> {}
 const FilterSection = () => {
   const [expendColor, setExpandColor] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const updateFilterParams = (event: FilterChangeEvent) => {
     const { value, name } = event.target;
@@ -26,9 +25,6 @@ const FilterSection = () => {
     setSearchParams(updatedParams);
   };
 
-  useEffect(() => {
-    // Initialize active filters from URL params
-  }, [searchParams]);
 
   const handleColorToggle = () => {
     setExpandColor(!expendColor);
