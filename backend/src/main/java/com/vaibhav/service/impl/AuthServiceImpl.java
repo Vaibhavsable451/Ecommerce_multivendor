@@ -99,10 +99,15 @@ public class AuthServiceImpl implements AuthService {
             String subject="vaibhav bazaar login/signup otp";
             String text="your login/signup otp is -"+otp;
 
-            emailService.sendVerificationOtpEmail(email,otp,subject,text);
-            log.info("OTP email sent successfully to: {}", email);
+            try {
+                emailService.sendVerificationOtpEmail(email, otp, subject, text);
+                log.info("OTP email sent successfully to: {}", email);
+            } catch (Exception e) {
+                log.error("SMTP Error: Could not send email. DEBUG OTP: {}", otp);
+                System.out.println("====== [NEW OTP DEBUG: " + otp + "] ======");
+            }
         } catch (Exception e) {
-            log.error("Error in sentLoginOtp for email: {}, role: {} - {}", email, role, e.getMessage(), e);
+            log.error("Error in sentLoginOtp for email: {}, role: {} - {}", email, role, e.getMessage());
             throw e;
         }
     }
