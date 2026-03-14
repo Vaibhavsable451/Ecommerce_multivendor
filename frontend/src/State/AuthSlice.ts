@@ -10,8 +10,9 @@ export const sendLoginSignupOtp = createAsyncThunk("auth/sendLoginSignupOtp",
       console.log("login otp:", response.data);
       return response.data;
     } catch (error: any) {
-      console.error("Error in sendLoginSignupOtp:", error);
-      return rejectWithValue(error.response?.data || "Something went wrong"); // ✅ Handle errors properly
+      const errorMessage = error.response?.data?.message || error.message || "Something went wrong";
+      console.error("Error in sendLoginSignupOtp:", errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 )
@@ -25,8 +26,9 @@ export const signin = createAsyncThunk<any,any>("auth/signin", // ✅ Fix: Use p
       loginRequest.navigate("/");
       return response.data.jwt; // ✅ Return response data
     } catch (error: any) {
-      console.error("Error in signin:", error);
-      return rejectWithValue(error.response?.data || "Signin failed"); // ✅ Handle errors properly
+      const errorMessage = error.response?.data?.message || error.message || "Signin failed";
+      console.error("Error in signin:", errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 )
@@ -69,8 +71,9 @@ export const fetchUserProfile = createAsyncThunk<any,any>("users/fetchUserProfil
       console.log("user profile:", response.data);
       return response.data; // ✅ Return response data
     } catch (error: any) {
-      console.error("Error fetching profile:", error);
-      return rejectWithValue(error.response?.data || "Profile fetch failed"); // ✅ Handle errors properly
+      const errorMessage = error.response?.data?.message || error.message || "Profile fetch failed";
+      console.error("Error fetching profile:", errorMessage);
+      return rejectWithValue(errorMessage);
     }
   }
 )

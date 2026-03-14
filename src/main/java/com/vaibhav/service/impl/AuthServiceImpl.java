@@ -68,7 +68,7 @@ public class AuthServiceImpl implements AuthService {
                 User user=userRepository.findByEmail(email);
 
                 if(user==null){
-                    throw new Exception("user not exist provided email");
+                    throw new Exception("account not found with this email. please signup first.");
                 }
 
             }
@@ -87,7 +87,14 @@ public class AuthServiceImpl implements AuthService {
         String subject="vaibhav bazaar login/signup otp";
          String text="your login/signup otp is -"+otp;
 
-         emailService.sendVerificationOtpEmail(email,otp,subject,text);
+        try {
+            emailService.sendVerificationOtpEmail(email, otp, subject, text);
+        } catch (Exception e) {
+            log.error("Failed to send email: {}", e.getMessage());
+            // For debugging purposes when SMTP is not configured
+            System.out.println("DEBUG: OTP for " + email + " is " + otp);
+            throw new Exception("Failed to send email. If you are the developer, check logs for the OTP. Error: " + e.getMessage());
+        }
     }
 
     @Override
