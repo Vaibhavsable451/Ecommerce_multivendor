@@ -22,7 +22,8 @@ public class HomeController {
         }
 
         try (java.sql.Connection connection = dataSource.getConnection()) {
-            apiResponse.setMessage(apiResponse.getMessage() + " [DB Connected]");
+            java.sql.DatabaseMetaData metaData = connection.getMetaData();
+            apiResponse.setMessage(apiResponse.getMessage() + " [DB Connected: " + metaData.getDatabaseProductName() + " " + metaData.getDatabaseProductVersion() + "]");
         } catch (Exception e) {
             apiResponse.setMessage(apiResponse.getMessage() + " [DB Connection Error: " + e.getMessage() + "]");
         }

@@ -55,7 +55,7 @@ const SellerLoginForm = () => {
 
   const handleSendOtp = () => {
     setIsOtpSent(true);
-    dispatch(sendLoginSignupOtp({email:formik.values.email}))
+    dispatch(sendLoginSignupOtp({email: "signing_" + formik.values.email, role: "ROLE_SELLER"}))
   }
 
   return (

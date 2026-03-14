@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import store, { useAppDispatch, useAppSelector } from 'State/Store'
 import { useFormik } from 'formik'
 import { Button, CircularProgress, FormControlLabel, Radio, RadioGroup, TextField, Snackbar, Alert } from '@mui/material'
@@ -41,13 +41,13 @@ const LoginForm = () => {
 
     const handleResendOTP = () => {
             // Implement OTP resend logic
-            dispatch(sendLoginSignupOtp({ email: "signing_"+formik.values.email }))
+            dispatch(sendLoginSignupOtp({ email: "signing_"+formik.values.email, role: "ROLE_CUSTOMER" }))
             console.log('Resend OTP');
             setTimer(30);
             setIsTimerActive(true);
         };
      const handleSendOtp = async () => {
-        const resultAction = await dispatch(sendLoginSignupOtp({email: formik.values.email}));
+        const resultAction = await dispatch(sendLoginSignupOtp({email: "signing_"+formik.values.email, role: "ROLE_CUSTOMER"}));
         if (sendLoginSignupOtp.fulfilled.match(resultAction)) {
           setShowOtpSentMessage(true);
           // Hide the message after 5 seconds

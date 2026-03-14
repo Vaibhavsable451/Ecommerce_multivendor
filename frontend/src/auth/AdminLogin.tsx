@@ -1,4 +1,4 @@
-﻿import { Alert, Button, CircularProgress, Snackbar, TextField } from '@mui/material'
+import { Alert, Button, CircularProgress, Snackbar, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { FormikValues, useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -42,7 +42,7 @@ const AdminLoginForm = () => {
 
     const handleResendOTP = () => {
         // Implement OTP resend logic
-        dispatch(sendLoginSignupOtp({ email: "signing_"+formik.values.email }))
+        dispatch(sendLoginSignupOtp({ email: "signing_"+formik.values.email, role: "ROLE_ADMIN" }))
         console.log('Resend OTP');
         setTimer(30);
         setIsTimerActive(true);

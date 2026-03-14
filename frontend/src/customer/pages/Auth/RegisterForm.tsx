@@ -37,7 +37,7 @@ const RegisterForm = () => {
     const handleSendOtp = async () => {
         setLoading(true)
         try {
-            await dispatch(sendLoginSignupOtp({ email: formik.values.email })).unwrap()
+            await dispatch(sendLoginSignupOtp({ email: formik.values.email, role: "ROLE_CUSTOMER" })).unwrap()
             setOtpSent(true)
         } catch (error) {
             console.error("Failed to send OTP:", error)

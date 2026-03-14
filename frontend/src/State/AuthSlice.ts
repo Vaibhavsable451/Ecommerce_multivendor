@@ -4,11 +4,11 @@ import { User } from "../types/userTypes";
 
 // ✅ Fix: Use unique action types instead of URL paths
 export const sendLoginSignupOtp = createAsyncThunk("auth/sendLoginSignupOtp",
-  async ({ email }: { email: string }, { rejectWithValue }) => {
+  async ({ email, role }: { email: string; role?: string }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/sent/login-signup-otp", { email });
+      const response = await api.post("/auth/sent/login-signup-otp", { email, role });
       console.log("login otp:", response.data);
-      return response.data; // ✅ Return response data
+      return response.data;
     } catch (error: any) {
       console.error("Error in sendLoginSignupOtp:", error);
       return rejectWithValue(error.response?.data || "Something went wrong"); // ✅ Handle errors properly
@@ -19,8 +19,8 @@ export const sendLoginSignupOtp = createAsyncThunk("auth/sendLoginSignupOtp",
 export const signin = createAsyncThunk<any,any>("auth/signin", // ✅ Fix: Use proper action type
   async (loginRequest: { email: string; otp: string; navigate: any }, { rejectWithValue }) => {
     try {
-      const response = await api.post("/auth/signing", loginRequest);
-      console.log("login otp:", response.data);
+      const response = await api.post("/auth/signin", loginRequest);
+      console.log("login response:", response.data);
       localStorage.setItem("jwt",response.data.jwt)
       loginRequest.navigate("/");
       return response.data.jwt; // ✅ Return response data

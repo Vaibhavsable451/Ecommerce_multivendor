@@ -27,6 +27,13 @@ public class HomeCategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    @GetMapping("/data")
+    public ResponseEntity<Home> getHomePageData() {
+        List<HomeCategory> categories = homeCategoryService.getAllHomeCategories();
+        Home home = homeService.createHomePageData(categories);
+        return ResponseEntity.ok(home);
+    }
+
     // ✅ ADMIN CREATE
     @PostMapping("/categories")
     public ResponseEntity<Home> createHomeCategories(
