@@ -52,53 +52,59 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void sentLoginOtp(String email, USER_ROLE role) throws Exception {
-        // Remove prefix and trim/lowercase email for consistency
-        String cleanEmail = email;
-        if(cleanEmail.startsWith(SIGNING_PREFIX)){
-            cleanEmail = cleanEmail.substring(SIGNING_PREFIX.length());
-        }
-        cleanEmail = cleanEmail.trim().toLowerCase();
-
-        if(email.startsWith(SIGNING_PREFIX)){
-            if(USER_ROLE.ROLE_SELLER.equals(role)){
-                Seller seller=sellerRepository.findByEmail(cleanEmail);
-                if (seller==null){
-                    log.warn("Seller not found for email: {}", cleanEmail);
-                    throw new Exception("seller not found");
-                }
-            }
-            else {
-                log.debug("Checking user existence for email: {}", cleanEmail);
-                User user=userRepository.findByEmail(cleanEmail);
-
-                if(user==null){
-                    log.warn("User not found for email: {}", cleanEmail);
-                    throw new Exception("user not exist provided email");
-                }
-            }
+        String SIGNING_PREFIX = "signing_";
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email is required");
         }
         
-        VerificationCode isExist=verificationCodeRepository.findByEmail(cleanEmail);
-        if(isExist!=null){
-            log.debug("Deleting existing OTP for email: {}", cleanEmail);
-            verificationCodeRepository.delete(isExist);
-        }
-        
-        String otp= OtpUtil.generateOtp();
-        log.debug("Generated OTP for email: {}", cleanEmail);
-        
-        VerificationCode verificationCode=new VerificationCode();
-        verificationCode.setOtp(otp);
-        verificationCode.setEmail(cleanEmail);
-        verificationCodeRepository.save(verificationCode);
-        log.debug("Saved OTP to database for email: {}", cleanEmail);
-
-        String subject="vaibhav bazaar login/signup otp";
-        String text="your login/signup otp is -"+otp;
-
         try {
-            emailService.sendVerificationOtpEmail(cleanEmail, otp, subject, text);
-            log.info("OTP email sent successfully to: {}", cleanEmail);
+            // Remove prefix and trim/lowercase email for consistency
+            String cleanEmail = email;
+            if(cleanEmail.startsWith(SIGNING_PREFIX)){
+                cleanEmail = cleanEmail.substring(SIGNING_PREFIX.length());
+            }
+            cleanEmail = cleanEmail.trim().toLowerCase();
+
+            if(email.startsWith(SIGNING_PREFIX)){
+                if(USER_ROLE.ROLE_SELLER.equals(role)){
+                    Seller seller=sellerRepository.findByEmail(cleanEmail);
+                    if (seller==null){
+                        log.warn("Seller not found for email: {}", cleanEmail);
+                        throw new Exception("seller not found");
+                    }
+                }
+                else {
+                    log.debug("Checking user existence for email: {}", cleanEmail);
+                    User user=userRepository.findByEmail(cleanEmail);
+
+                    if(user==null){
+                        log.warn("User not found for email: {}", cleanEmail);
+                        throw new Exception("user not exist provided email");
+                    }
+                }
+            }
+            
+            VerificationCode isExist=verificationCodeRepository.findByEmail(cleanEmail);
+            if(isExist!=null){
+                log.debug("Deleting existing OTP for email: {}", cleanEmail);
+                verificationCodeRepository.delete(isExist);
+            }
+            
+            String otp= OtpUtil.generateOtp();
+            log.debug("Generated OTP for email: {}", cleanEmail);
+            
+            VerificationCode verificationCode=new VerificationCode();
+            verificationCode.setOtp(otp);
+            verificationCode.setEmail(cleanEmail);
+            verificationCodeRepository.save(verificationCode);
+            log.debug("Saved OTP to database for email: {}", cleanEmail);
+
+            String subject="vaibhav bazaar login/signup otp";
+            String text="your login/signup otp is -"+otp;
+
+            try {
+                emailService.sendVerificationOtpEmail(cleanEmail, otp, subject, text);
+                log.info("OTP email sent successfully to: {}", cleanEmail);
             } catch (Exception e) {
                 log.error("SMTP Error: Could not send email. DEBUG OTP: {}", otp);
                 System.out.println("====== [NEW OTP DEBUG: " + otp + "] ======");
