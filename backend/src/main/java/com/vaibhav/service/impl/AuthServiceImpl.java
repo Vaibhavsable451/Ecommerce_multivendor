@@ -52,56 +52,53 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void sentLoginOtp(String email, USER_ROLE role) throws Exception {
-        String SIGNING_PREFIX ="signing_";
-        if (email == null || email.isBlank()) {
-            throw new IllegalArgumentException("Email is required");
+        // Remove prefix and trim/lowercase email for consistency
+        String cleanEmail = email;
+        if(cleanEmail.startsWith(SIGNING_PREFIX)){
+            cleanEmail = cleanEmail.substring(SIGNING_PREFIX.length());
         }
+        cleanEmail = cleanEmail.trim().toLowerCase();
+
+        if(email.startsWith(SIGNING_PREFIX)){
+            if(USER_ROLE.ROLE_SELLER.equals(role)){
+                Seller seller=sellerRepository.findByEmail(cleanEmail);
+                if (seller==null){
+                    log.warn("Seller not found for email: {}", cleanEmail);
+                    throw new Exception("seller not found");
+                }
+            }
+            else {
+                log.debug("Checking user existence for email: {}", cleanEmail);
+                User user=userRepository.findByEmail(cleanEmail);
+
+                if(user==null){
+                    log.warn("User not found for email: {}", cleanEmail);
+                    throw new Exception("user not exist provided email");
+                }
+            }
+        }
+        
+        VerificationCode isExist=verificationCodeRepository.findByEmail(cleanEmail);
+        if(isExist!=null){
+            log.debug("Deleting existing OTP for email: {}", cleanEmail);
+            verificationCodeRepository.delete(isExist);
+        }
+        
+        String otp= OtpUtil.generateOtp();
+        log.debug("Generated OTP for email: {}", cleanEmail);
+        
+        VerificationCode verificationCode=new VerificationCode();
+        verificationCode.setOtp(otp);
+        verificationCode.setEmail(cleanEmail);
+        verificationCodeRepository.save(verificationCode);
+        log.debug("Saved OTP to database for email: {}", cleanEmail);
+
+        String subject="vaibhav bazaar login/signup otp";
+        String text="your login/signup otp is -"+otp;
+
         try {
-            log.info("Sending OTP for email: {}, role: {}", email, role);
-            
-            if(email.startsWith(SIGNING_PREFIX)){
-                email=email.substring(SIGNING_PREFIX.length());
-                log.debug("Removed signing prefix, email: {}", email);
-
-                if(USER_ROLE.ROLE_SELLER.equals(role)){
-                    Seller seller=sellerRepository.findByEmail(email);
-                    if (seller==null){
-                        log.warn("Seller not found for email: {}", email);
-                        throw new Exception("seller not found");
-                    }
-                }
-                else {
-                    log.debug("Checking user existence for email: {}", email);
-                    User user=userRepository.findByEmail(email);
-
-                    if(user==null){
-                        log.warn("User not found for email: {}", email);
-                        throw new Exception("user not exist provided email");
-                    }
-                }
-            }
-            
-            VerificationCode isExist=verificationCodeRepository.findByEmail(email);
-            if(isExist!=null){
-                log.debug("Deleting existing OTP for email: {}", email);
-                verificationCodeRepository.delete(isExist);
-            }
-            
-            String otp= OtpUtil.generateOtp();
-            log.debug("Generated OTP for email: {}", email);
-            
-            VerificationCode verificationCode=new VerificationCode();
-            verificationCode.setOtp(otp);
-            verificationCode.setEmail(email);
-            verificationCodeRepository.save(verificationCode);
-            log.debug("Saved OTP to database for email: {}", email);
-
-            String subject="vaibhav bazaar login/signup otp";
-            String text="your login/signup otp is -"+otp;
-
-            try {
-                emailService.sendVerificationOtpEmail(email, otp, subject, text);
-                log.info("OTP email sent successfully to: {}", email);
+            emailService.sendVerificationOtpEmail(cleanEmail, otp, subject, text);
+            log.info("OTP email sent successfully to: {}", cleanEmail);
             } catch (Exception e) {
                 log.error("SMTP Error: Could not send email. DEBUG OTP: {}", otp);
                 System.out.println("====== [NEW OTP DEBUG: " + otp + "] ======");
@@ -115,13 +112,18 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String createUser(SignUpRequest req) throws Exception {
         String SIGNING_PREFIX="signing_";
+        String email = req.getEmail();
+        if(email.startsWith(SIGNING_PREFIX)){
+            email = email.substring(SIGNING_PREFIX.length());
+        }
+        email = email.trim().toLowerCase();
 
-        VerificationCode  verificationCode = verificationCodeRepository.findByEmail(req.getEmail());
+        VerificationCode  verificationCode = verificationCodeRepository.findByEmail(email);
         if(verificationCode==null || !verificationCode.getOtp().equals(req.getOtp())){
             throw new Exception("wrong otp___");
         }
 
-        User user = userRepository.findByEmail(req.getEmail());
+        User user = userRepository.findByEmail(email);
 
         if(user==null){
             User createdUser=new User();
@@ -169,15 +171,22 @@ public class AuthServiceImpl implements AuthService {
     private Authentication authenticate(String username, String otp) throws Exception {
         UserDetails userDetails=customUserService.loadUserByUsername(username);
         String SELLER_PREFIX = "seller_";
-        if (username.startsWith(SELLER_PREFIX)) {
-            username=username.substring(SELLER_PREFIX.length());
+        String SIGNING_PREFIX = "signing_";
+        
+        String cleanUsername = username;
+        if (cleanUsername.startsWith(SELLER_PREFIX)) {
+            cleanUsername = cleanUsername.substring(SELLER_PREFIX.length());
+        } else if (cleanUsername.startsWith(SIGNING_PREFIX)) {
+            cleanUsername = cleanUsername.substring(SIGNING_PREFIX.length());
         }
+        cleanUsername = cleanUsername.trim().toLowerCase();
+
         if(userDetails==null){
             throw new BadCredentialsException("invalid username");
 
         }
-        VerificationCode verificationCode=verificationCodeRepository.findByEmail(username);
-        System.out.println("---"+username+"---"+otp);
+        VerificationCode verificationCode=verificationCodeRepository.findByEmail(cleanUsername);
+        System.out.println("---"+cleanUsername+"---"+otp);
         if(verificationCode==null  || !verificationCode.getOtp().equals(otp)){
             throw new Exception("wrong otp");
         }
