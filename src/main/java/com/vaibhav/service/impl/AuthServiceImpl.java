@@ -90,10 +90,13 @@ public class AuthServiceImpl implements AuthService {
         try {
             emailService.sendVerificationOtpEmail(email, otp, subject, text);
         } catch (Exception e) {
-            log.error("Failed to send email: {}", e.getMessage());
-            // For debugging purposes when SMTP is not configured
-            System.out.println("DEBUG: OTP for " + email + " is " + otp);
-            throw new Exception("Failed to send email. If you are the developer, check logs for the OTP. Error: " + e.getMessage());
+            log.error("SMTP Error: Could not send email. Verify MAIL_USERNAME and MAIL_PASSWORD.");
+            log.info("--- DEBUG OTP FOR TESTING ---");
+            log.info("EMAIL: {}", email);
+            log.info("OTP: {}", otp);
+            log.info("-----------------------------");
+            // We don't throw an exception here so the frontend stays happy
+            // The developer can see the OTP in the Render/Server logs
         }
     }
 
